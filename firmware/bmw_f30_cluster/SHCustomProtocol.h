@@ -259,6 +259,10 @@ const unsigned long FUEL_STEADY_MS = 2500;
 // silence, start SWEEP_AFTER_WAKE_MS after the cluster is talking again: started right at
 // the wake with 2 s, the needles did not reach the end stop (user, 2026-10-08).
 const unsigned long SWEEP_MS = 3000;
+// Cruise set-speed marker (0x289), see the cruise block in Loop()
+const int CRUISE_SET_MIN_KMH = 30;
+const int CRUISE_SET_MAX_KMH = 110;
+const int CRUISE_MARKER_OFFSET_KMH = 28;      // re-seat the arm at 0 km/h and set this to 0
 const unsigned long SWEEP_AFTER_WAKE_MS = 1000;
 static unsigned long wakeMuteUntil = 0;
 static bool wakeMuting = false;
@@ -981,7 +985,16 @@ cv = 0x96;
 } else {
 cv = 0x00;
 }
-  unsigned char cruiseWithoutCRC[] = { 0xF0|counter4Bit, 0x00, 0xE0, 0xE1, cv, 0x14, 0x00  };
+  // Set-speed marker (LED on an arm around the speedometer, found 2026-10-09 with the
+  // webcam): byte1 0x22 = green marker (0x20 orange, bit3 = mph), byte5/6 = set speed
+  // x16 little endian. Our arm was seated ~28 km/h high, so subtract that; hence no
+  // marker below CRUISE_SET_MIN_KMH. Set speed comes from field 11 (oil_warn) = game
+  // cruise speed + 2.
+  int setKmh = oil_warn - 2;
+  bool showMarker = cruise == 1 && setKmh >= CRUISE_SET_MIN_KMH;
+  if (setKmh > CRUISE_SET_MAX_KMH) setKmh = CRUISE_SET_MAX_KMH;
+  uint16_t setRaw = showMarker ? (uint16_t)((setKmh - CRUISE_MARKER_OFFSET_KMH) * 16) : 0x14;
+  unsigned char cruiseWithoutCRC[] = { 0xF0|counter4Bit, (uint8_t)(showMarker ? 0x22 : 0x00), 0xE0, 0xE1, cv, lo8(setRaw), hi8(setRaw) };
   unsigned char cruiseWithCRC[] = { crc8Calculator.get_crc8(cruiseWithoutCRC, 7, 0x82), cruiseWithoutCRC[0], cruiseWithoutCRC[1], cruiseWithoutCRC[2], cruiseWithoutCRC[3], cruiseWithoutCRC[4], cruiseWithoutCRC[5], cruiseWithoutCRC[6] };
  CAN.sendMsgBuf(0x289, 0, 8, cruiseWithCRC);
 

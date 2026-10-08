@@ -29,7 +29,7 @@ class FakeSimHub:
         for i in range(0, len(msg), 16):       # small chunks: the firmware's ring buffer is 32 bytes
             self._packet(msg[i:i + 16])
 
-def fields(speed=0, rpm=700, fuel=81, ign=1, cons=0, warn=0, light=1, hand=0, gear="N"):
+def fields(speed=0, rpm=700, fuel=81, ign=1, cons=0, warn=0, light=1, hand=0, gear="N", cruise=0, cset=0):
     t = time.localtime()
     f = [0] * 54
     f[0], f[1], f[2], f[3] = speed, rpm, 135, fuel
@@ -38,6 +38,7 @@ def fields(speed=0, rpm=700, fuel=81, ign=1, cons=0, warn=0, light=1, hand=0, ge
     f[22] = hand                     # parking brake
     f[26] = ign; f[32] = ign         # engine_fs / EngineIgnitionOn
     f[28] = gear; f[29] = light; f[31] = 20; f[33] = round(fuel * 52) if cons == 0 else cons; f[34] = t.tm_hour   # f[33]: fuel left in a 52 L tank, cL
+    f[8] = cruise; f[10] = cset + 2  # cruise icon / set speed (formula adds 2)
     f[37] = 90; f[44] = warn; f[53] = "ETS2"
     return f
 
