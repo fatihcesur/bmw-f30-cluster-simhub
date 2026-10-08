@@ -1,0 +1,21 @@
+start: range 325.75 km, cluster fuel 43 L, target 1190.0
+  0.9 min  range 325.75 km  fuel 42 L
+          target now 1312 km
+  1.9 min  range 325.75 km  fuel 41 L
+          target now 1281 km
+  2.8 min  range 325.75 km  fuel 40 L
+          target now 1250 km
+  3.7 min  range 325.75 km  fuel 38 L
+          target now 1188 km
+  4.6 min  range 325.75 km  fuel 37 L
+          target now 1156 km
+  5.6 min  range None km  fuel None L
+          target now 1156 km
+  6.5 min  range 325.75 km  fuel 36 L
+          target now 1125 km
+  7.4 min  range None km  fuel None L
+          target now 1125 km
+  8.3 min  range 325.75 km  fuel 36 L
+          target now 1125 km
+  9.3 min  range 325.75 km  fuel 36 L
+          target now 1125 km

@@ -1,0 +1,8 @@
+start: range None km, cluster fuel None L, target 1480.0
+  5.7 min  range 894.75 km  fuel 43 L  cluster avg 4.8 l/100km
+ 11.5 min  range 894.75 km  fuel 43 L  cluster avg 4.8 l/100km
+ 17.2 min  range None km  fuel None L  cluster avg None l/100km
+ 22.7 min  range 894.75 km  fuel 43 L  cluster avg 4.8 l/100km
+ 28.5 min  range 894.75 km  fuel 43 L  cluster avg 4.8 l/100km
+ 33.8 min  range None km  fuel None L  cluster avg None l/100km
+ 39.6 min  range 894.75 km  fuel 43 L  cluster avg 4.8 l/100km

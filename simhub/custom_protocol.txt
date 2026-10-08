@@ -1,0 +1,54 @@
+format([DataCorePlugin.GameData.NewData.SpeedKmh],'0') + ';' +
+round(isnull([DataCorePlugin.GameData.NewData.Rpms],0),0) + ';' +
+round(isnull([DataCorePlugin.GameData.OilTemperature],0) * 1.5, 0) + ';' +
+round(isnull([DataCorePlugin.GameData.FuelPercent],0) * if(isnull([DataCorePlugin.GameData.FuelPercent],0) <= 1, 100, 1), 0) + ';' +
+'0' + ';' +
+format([DataCorePlugin.CurrentDateTime],'yyyy') + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BlinkerLeftActive]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_Signal_L],0)>0 or isnull([DataCorePlugin.GameData.TurnIndicatorLeft],0)>0,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BlinkerRightActive]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_Signal_R],0)>0 or isnull([DataCorePlugin.GameData.TurnIndicatorRight],0)>0,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DashboardValues.CruiseControl]==true,1,0), if(isnull([DataCorePlugin.GameData.PitLimiterOn],0)>0,1,0)) + ';' +
+'0' + ';' +
+round(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DashboardValues.CruiseControlSpeed.Kph],0)+2,0) + ';' +
+'0' + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BeamHigh]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_HighBeam],0)>0 or isnull([DataCorePlugin.GameRawData.Graphics.LightsStage],0)>=2,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if(([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BlinkerLeftActive]==true) or ([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.HazardWarningLights]==true),1,0), if(isnull([DataCorePlugin.GameRawData.light_Signal_L],0)>0 or isnull([DataCorePlugin.GameData.TurnIndicatorLeft],0)>0,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if(([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BlinkerRightActive]==true) or ([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.HazardWarningLights]==true),1,0), if(isnull([DataCorePlugin.GameRawData.light_Signal_R],0)>0 or isnull([DataCorePlugin.GameData.TurnIndicatorRight],0)>0,1,0)) + ';' +
+format([DataCorePlugin.CurrentDateTime],'mm') + ';' +
+'0' + ';' +
+format([DataCorePlugin.CurrentDateTime],'ss') + ';' +
+'0' + ';' +
+format([DataCorePlugin.CurrentDateTime],'dd') + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), round(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.MotorValues.BrakeValues.AirPressure],0),0), 0) + ';' +
+format([DataCorePlugin.CurrentDateTime],'MM') + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.MotorValues.BrakeValues.ParkingBrake]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_Parkingbrake],0)>0 or isnull([DataCorePlugin.GameData.Handbrake],0)>50,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BlinkerLeftActive]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_Signal_L],0)>0 or isnull([DataCorePlugin.GameData.TurnIndicatorLeft],0)>0,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BlinkerRightActive]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_Signal_R],0)>0 or isnull([DataCorePlugin.GameData.TurnIndicatorRight],0)>0,1,0)) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DashboardValues.CruiseControl]==true,1,0), if(isnull([DataCorePlugin.GameData.PitLimiterOn],0)>0,1,0)) + ';' +
+if([DataCorePlugin.GameData.EngineIgnitionOn]==true,1,0) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BeamLow]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_LowBeam],0)>0 or isnull([DataCorePlugin.GameRawData.light_HighBeam],0)>0 or isnull([DataCorePlugin.GameRawData.Graphics.LightsStage],0)>0,1,0)) + ';' +
+isnull([DataCorePlugin.GameData.Gear],'0') + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BeamLow]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_LowBeam],0)>0 or isnull([DataCorePlugin.GameRawData.light_HighBeam],0)>0 or isnull([DataCorePlugin.GameRawData.Graphics.LightsStage],0)>0,1,0)) + ';' +
+'0' + ';' +
+'20' + ';' +
+if([DataCorePlugin.GameData.EngineIgnitionOn]==true,1,0) + ';' +
+round(isnull([DataCorePlugin.GameData.FuelPercent],0) * if(isnull([DataCorePlugin.GameData.FuelPercent],0) <= 1, 100, 1) * 52, 0) + ';' +
+format([DataCorePlugin.CurrentDateTime],'HH') + ';' +
+if(isnull([InputStatus.JoystickPlugin.R3_Racing_Wheel_and_Pedals_B02],0)>0,1,0) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.BeamHigh]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_HighBeam],0)>0 or isnull([DataCorePlugin.GameRawData.Graphics.LightsStage],0)>=2,1,0)) + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if(max(max(max(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Engine],0),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Transmission],0)),max(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Cabin],0),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Chassis],0))),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.WheelsAvg],0)) >= 0.15,1,0) + if(max(max(max(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Engine],0),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Transmission],0)),max(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Cabin],0),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Chassis],0))),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.WheelsAvg],0)) >= 0.20,2,0) + if(max(max(max(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Engine],0),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Transmission],0)),max(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Cabin],0),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Chassis],0))),isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.WheelsAvg],0)) >= 0.40,4,0) + if(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.Engine],0) >= 0.50,8,0) + if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DifferentialLock]==true,16,0) + if(isnull([DataCorePlugin.GameRawData.NavigationValues.SpeedLimit.Kph],isnull([DataCorePlugin.GameRawData.NavigationValues.SpeedLimit.Value],0)*3.6) > 0 and [DataCorePlugin.GameData.NewData.SpeedKmh] > isnull([DataCorePlugin.GameRawData.NavigationValues.SpeedLimit.Kph],isnull([DataCorePlugin.GameRawData.NavigationValues.SpeedLimit.Value],0)*3.6) + 5,32,0) + if([DataCorePlugin.GameRawData.TrailerValues01.Attached]==true,64,0) + if(isnull([DataCorePlugin.GameRawData.TruckValues.CurrentValues.DamageValues.WheelsAvg],0) >= 0.25,128,0), 0) + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+'0' + ';' +
+if(isnull([InputStatus.JoystickPlugin.Maple_B10],0)>0,1,0) + ';' +
+if(([DataCorePlugin.CurrentGame]=='ETS2' or [DataCorePlugin.CurrentGame]=='ATS'), if([DataCorePlugin.GameRawData.TruckValues.CurrentValues.LightsValues.Parking]==true,1,0), if(isnull([DataCorePlugin.GameRawData.light_LowBeam],0)>0 or isnull([DataCorePlugin.GameRawData.light_HighBeam],0)>0 or isnull([DataCorePlugin.GameRawData.Graphics.LightsStage],0)>0,1,0)) + ';' +
+isnull([DataCorePlugin.CurrentGame],'none')

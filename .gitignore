@@ -1,0 +1,4 @@
+# Raw webcam frames from the scanners (~3.5 GB, kept local)
+tools/cc_scanner/captures/
+__pycache__/
+*.pyc
