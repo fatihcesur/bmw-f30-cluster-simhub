@@ -4,3 +4,5 @@ __pycache__/
 *.pyc
 # local tool hook that imports NOTES.md (not part of the project)
 CLAUDE.md
+# per-cluster trims
+firmware/bmw_f30_cluster/local_config.h

@@ -259,13 +259,20 @@ const unsigned long FUEL_STEADY_MS = 2500;
 // silence, start SWEEP_AFTER_WAKE_MS after the cluster is talking again: started right at
 // the wake with 2 s, the needles did not reach the end stop (user, 2026-10-08).
 const unsigned long SWEEP_MS = 3000;
-// Speed needle trim after the needles were re-seated: sent 100 read 97 head-on (user,
-// 2026-10-09), so the needle runs ~3 % low.
-const float SPEED_NEEDLE_GAIN = 1.03;
+// Per-cluster trims live in local_config.h (git-ignored, see local_config.example.h):
+// they depend on how the needles and the cruise marker arm were seated on YOUR cluster.
+#if __has_include("local_config.h")
+#include "local_config.h"
+#endif
+#ifndef SPEED_NEEDLE_GAIN
+#define SPEED_NEEDLE_GAIN 1.0        // >1 if the speed needle reads low everywhere
+#endif
+#ifndef CRUISE_MARKER_OFFSET_KMH
+#define CRUISE_MARKER_OFFSET_KMH 0   // km/h the cruise marker arm sits too high
+#endif
 // Cruise set-speed marker (0x289), see the cruise block in Loop()
 const int CRUISE_SET_MIN_KMH = 30;
 const int CRUISE_SET_MAX_KMH = 110;
-const int CRUISE_MARKER_OFFSET_KMH = 28;      // re-seat the arm at 0 km/h and set this to 0
 const unsigned long SWEEP_AFTER_WAKE_MS = 1000;
 static unsigned long wakeMuteUntil = 0;
 static bool wakeMuting = false;
