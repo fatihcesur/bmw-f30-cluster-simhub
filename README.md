@@ -18,6 +18,7 @@ tried, what failed and why is in [`docs/HISTORY.md`](docs/HISTORY.md).
 | Gauges | Speed, RPM, fuel, oil temperature, l/100km needle |
 | Gear / mode | P R N D and DS with gear number, drive modes (Traction, Comfort, Sport, Sport+, DSC off, Eco Pro) |
 | Lamps | Turn signals, hazards, high beam, lights-on, fog, cruise control, parking brake, seatbelt, engine MIL, DSC, low brake-air pressure |
+| Cruise set speed | Green marker LED on the speedometer ring at the game's set speed (30–110 km/h) |
 | MID display | Page button and long-press trip reset, consumption unit, Turkish / German / English language, clock and date from the PC |
 | Trip computer | Average consumption and range that agree with the game (fuel counter matched to the real fuel use) |
 | Fuel | Refuelling moves the needle straight to the new level (the cluster's own heavy damping is worked around) |
@@ -25,7 +26,7 @@ tried, what failed and why is in [`docs/HISTORY.md`](docs/HISTORY.md).
 | Backlight | Always on, or tied to the game's lights (`backlightAlwaysOn`) |
 | Extras | Optional PC-side BMW-style gong for warnings (`tools/gong`) |
 
-Open items (help welcome): cruise set-speed marker, speed-limit sign (SLI), low-beam icon
+Open items (help welcome): speed-limit sign (SLI), low-beam icon
 (this cluster has none), outside temperature (a physical sensor input, not CAN).
 
 ## Hardware
@@ -76,7 +77,7 @@ The formula picks the right source per game (`DataCorePlugin.CurrentGame`):
 | Turn signals / hazards | ✓ | ✓ SimHub `TurnIndicatorLeft/Right` | ✓ |
 | Lights / high beam | ✓ | ACC: `Graphics.LightsStage` (AC has no light data) | ✓ |
 | Parking brake | ✓ | Handbrake lever > 50 % | ✓ |
-| Cruise icon | Cruise control | Pit limiter | – |
+| Cruise icon | Cruise control + set-speed marker | Pit limiter | – |
 | Brake air, damage, trailer, tyre wear warnings | ✓ | – | – |
 
 - Assetto Corsa / ACC support was added on 2026-10-08 and has not been tested in game yet.
