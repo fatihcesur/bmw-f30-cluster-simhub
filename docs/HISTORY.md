@@ -1592,3 +1592,9 @@ OR SimHub common data (`TurnIndicatorLeft/Right`, `Handbrake` > 50 -> parking br
 Original AC exposes no headlight data. Untested in game: if a lamp stays dark (or the whole
 formula errors), check the property types in SimHub while AC runs. The previous ETS2-only
 formula is kept as `simhub/legacy/ets2_formula_2026-10-08.txt`.
+
+**Welcome sweep after the wake silence (2026-10-08)**: since the 7 s ignition-on CAN silence
+(2026-10-04) the sweep started right at the wake and lasted 2 s; the user saw the needles
+stop short of the end. Now it starts `SWEEP_AFTER_WAKE_MS` = 1 s after the cluster is
+talking again and holds max for `SWEEP_MS` = 3 s. Shown with `tools/cc_scanner/fakesimhub.py
+5:ign=0,rpm=0 16:ign=1,rpm=700`: the user confirmed the needles now reach the end stops.

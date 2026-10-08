@@ -255,6 +255,11 @@ static bool sweepActive = false;
 // FUEL_STEADY_MS before muting.
 const unsigned long WAKE_MUTE_MS = 7000;
 const unsigned long FUEL_STEADY_MS = 2500;
+// Welcome sweep: needles held at max for SWEEP_MS. When it follows the ignition-on wake
+// silence, start SWEEP_AFTER_WAKE_MS after the cluster is talking again: started right at
+// the wake with 2 s, the needles did not reach the end stop (user, 2026-10-08).
+const unsigned long SWEEP_MS = 3000;
+const unsigned long SWEEP_AFTER_WAKE_MS = 1000;
 static unsigned long wakeMuteUntil = 0;
 static bool wakeMuting = false;
 static int fuelAtStop = -1;
@@ -331,7 +336,7 @@ if (EngineIgnitionOn == 1 && prevIgnitionState == 0) {
   if (Speed <= 2) {
     wakeMuting = true;
     wakeMuteUntil = millis() + WAKE_MUTE_MS;
-    sweepStartMs = wakeMuteUntil;          // sweep after the cluster woke up
+    sweepStartMs = wakeMuteUntil + SWEEP_AFTER_WAKE_MS;   // sweep after the cluster woke up
   }
 }
 prevIgnitionState = EngineIgnitionOn;
@@ -342,8 +347,9 @@ if (wakeMuting) {
   wakeMuting = false;
   if (refuelWoke) refuelSpeedHoldUntil = millis() + REFUEL_HOLD_MS;
 }
-bool inSweepWindow = sweepActive && (millis() - sweepStartMs < 2000);
-if (sweepActive && !inSweepWindow) {
+bool sweepStarted = (long)(millis() - sweepStartMs) >= 0;
+bool inSweepWindow = sweepActive && sweepStarted && (millis() - sweepStartMs < SWEEP_MS);
+if (sweepActive && sweepStarted && !inSweepWindow) {
   sweepActive = false;
 }
 
