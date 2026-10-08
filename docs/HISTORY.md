@@ -49,7 +49,7 @@ near `#define ENABLED_BUTTONS_COUNT` - update this table there too if pins chang
 
 ## Reference project — check this FIRST before guessing calibration
 
-An open-source multi-cluster project (linked in the README credits) lists "BMW 3 Series (F30)
+An open-source multi-cluster project lists "BMW 3 Series (F30)
 6WA" as supported. Its BMW F-series source (`BMWFSeriesCluster.cpp`) was used as a reference
 for CAN IDs and layouts; it is a different cluster series, so every value was re-checked here.
 

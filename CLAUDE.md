@@ -77,7 +77,7 @@ carries power and CAN — it is NOT a USB connection:
 
 ## Reference first
 
-The reference project's `BMWFSeriesCluster.cpp` (linked in the README credits)
+A public multi-cluster reference project's `BMWFSeriesCluster.cpp`
 lists F30 6WA as supported (ours is not a 6WA, see below). Check it for a CAN ID before any trial and error, but
 **treat it as hints, not truth**: the user confirmed (2026-09-28) the reference project's cluster is a
 different series from ours, and our working `0x289` payload already differs from it.

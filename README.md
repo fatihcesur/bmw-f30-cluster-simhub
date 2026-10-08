@@ -129,13 +129,10 @@ Kurulum için yukarıdaki *Setup* adımlarını izleyin.
 
 ## Credits
 
-Built by **Fatih Cesur**. Thanks to:
-
-- [CreeBoom2020](https://github.com/CreeBoom2020/Bmw-F3x-6wa-cluster-with-simhub-for-beamng)
-  for the original BeamNG sketch this project started from
-- [r00li / CarCluster](https://github.com/r00li/CarCluster) for CAN ID hints (a different
-  cluster series, so every value was re-verified on this cluster)
-- SimHub for the Arduino serial template files (`SH*.h`, `FlowSerialRead.h`, `ArqSerial.h`)
+Built by **Fatih Cesur**. Every CAN message, scaling and warning code here was found and
+verified on this cluster with a webcam, one test at a time. The project started from an
+earlier open-source BeamNG sketch; the Arduino serial template files (`SH*.h`,
+`FlowSerialRead.h`, `ArqSerial.h`) come with SimHub.
 
 ## License
 
