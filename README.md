@@ -139,5 +139,5 @@ Built by **Fatih Cesur**. Thanks to:
 
 ## License
 
-MIT, see [`LICENSE`](LICENSE). The SimHub template files and the parts that remain from
-the original CreeBoom2020 sketch belong to their authors.
+MIT, see [`LICENSE`](LICENSE). Third-party files (SimHub template, original sketch) belong
+to their authors.
