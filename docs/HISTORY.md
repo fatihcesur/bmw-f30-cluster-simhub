@@ -1598,3 +1598,19 @@ formula is kept as `simhub/legacy/ets2_formula_2026-10-08.txt`.
 stop short of the end. Now it starts `SWEEP_AFTER_WAKE_MS` = 1 s after the cluster is
 talking again and holds max for `SWEEP_MS` = 3 s. Shown with `tools/cc_scanner/fakesimhub.py
 5:ign=0,rpm=0 16:ign=1,rpm=700`: the user confirmed the needles now reach the end stops.
+
+**Cruise set-speed marker found (night of 2026-10-08/09)**: webcam hunt for a new green/orange
+blob on the speedometer ring (`tools/cc_scanner/cruisehunt.py`). Earlier 0x289 sweeps had
+missed it because the old scanners masked the chrome ring and the amber dial LEDs hid the
+orange marker. Results (`markertrack.py`, Brio camera head-on):
+- byte1: 0x20 orange marker, 0x22 green (bit1), 0x28/0x2A same in mph (80 shown at 113).
+- byte4 bit7 (cruise on) and byte5 >= 0x10 needed for the marker.
+- byte5/6: set speed x16, little endian. Measured set 20..220 -> marker at set + ~28 km/h,
+  linear: the arm was seated ~28 km/h high. Firmware compensates (`CRUISE_MARKER_OFFSET_KMH`),
+  shows the marker only for 30..110 km/h (user), green while cruise is on.
+- Camera: the Creative webcam is fixed-focus and blurry at this distance; the Brio 500
+  (index 0, autofocus) is sharp and head-on - use it for needle work.
+- After the long tests the speedometer needle read ~60 km/h high with both firmwares
+  (stepper lost its zero); a 12 V power cycle re-homes it.
+Images: `docs/images/highlights/cruise_marker_byte6_sweep.jpg`,
+`cruise_set_speed_marker_firmware_test.jpg`.

@@ -156,7 +156,13 @@ Open / unconfirmed:
 - Clock/date: SOLVED with `0x39E` (set time), sent from SimHub PC time. Flashed
   2026-09-28 morning; confirm with SimHub running (user must re-paste `simhub/custom_protocol.txt`,
   line 5/6 swap fixed the year field).
-- Cruise set speed: not in any 0x289 byte (swept at 80 km/h). Needs sniffing.
+- Cruise set speed: SOLVED 2026-10-09 (webcam hunt, `tools/cc_scanner/cruisehunt.py`,
+  `markertrack.py`). The marker is a green/orange LED on an arm around the speedometer.
+  0x289 byte1 0x22 = green (0x20 orange, bit3 = mph), byte4 bit7 (cruise on) required,
+  byte5/6 = set speed x16 little endian. The arm sits ~28 km/h high (seated at 30), so the
+  firmware subtracts `CRUISE_MARKER_OFFSET_KMH` = 28 and shows 30-110 km/h only (user's
+  choice). Set speed = field 11 - 2 (ETS2 CruiseControlSpeed.Kph). Verified on camera
+  through the main firmware: set 60/90/110 -> marker at 60/90/110, 130 clamps to 110.
 - Average consumption / range: SOLVED on the bench (2026-09-28): 0x2C4 byte0 is the
   fuel counter, factor 114 calibrated; field 34 = ETS2 consumption scaled to a 57 L
   car tank. Needs in-game confirmation (capacity property name, 57 L guess).
