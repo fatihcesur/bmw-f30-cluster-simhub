@@ -259,6 +259,9 @@ const unsigned long FUEL_STEADY_MS = 2500;
 // silence, start SWEEP_AFTER_WAKE_MS after the cluster is talking again: started right at
 // the wake with 2 s, the needles did not reach the end stop (user, 2026-10-08).
 const unsigned long SWEEP_MS = 3000;
+// Speed needle trim after the needles were re-seated: sent 100 read 97 head-on (user,
+// 2026-10-09), so the needle runs ~3 % low.
+const float SPEED_NEEDLE_GAIN = 1.03;
 // Cruise set-speed marker (0x289), see the cruise block in Loop()
 const int CRUISE_SET_MIN_KMH = 30;
 const int CRUISE_SET_MAX_KMH = 110;
@@ -467,7 +470,7 @@ CAN.sendMsgBuf(0x1EE, 0, 2, menuButtonFrame);
 // the cluster sees speed it switches to the slow filter (bench rmode1b: stuck at 3/4 when
 // driving off 2 s after the wake). So report 0 km/h for REFUEL_HOLD_MS after that wake.
 int shownSpeed = ((long)(millis() - refuelSpeedHoldUntil) < 0) ? 0 : Speed;
-uint16_t calculatedSpeed = inSweepWindow ? (uint16_t)(260 * 64.01) : (uint16_t)((double)shownSpeed * 64.01); // 260 = dial's printed max
+uint16_t calculatedSpeed = inSweepWindow ? (uint16_t)(260 * 64.01) : (uint16_t)((double)shownSpeed * 64.01 * SPEED_NEEDLE_GAIN); // 260 = dial's printed max
   unsigned char speedWithoutCRC[] = { 0xC0|counter4Bit, lo8(calculatedSpeed), hi8(calculatedSpeed), (shownSpeed == 0 ? 0x81 : 0x91) };
   unsigned char speedWithCRC[] = { crc8Calculator.get_crc8(speedWithoutCRC, 4, 0xA9), speedWithoutCRC[0], speedWithoutCRC[1], speedWithoutCRC[2], speedWithoutCRC[3] };
   CAN.sendMsgBuf(0x1A1, 0, 5, speedWithCRC);	
