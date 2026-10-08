@@ -1,0 +1,1203 @@
+0 76  settle 1.0
+1 2280 HIT settle 1.0
+2 2304 HIT settle 3.8
+3 2596 HIT settle 3.8
+4 2740 HIT settle 3.8
+5 2730 HIT settle 3.8
+6 2666 HIT settle 3.8
+7 2682 HIT settle 3.6
+8 2631 HIT settle 3.8
+9 2726 HIT settle 3.8
+10 2437 HIT settle 3.8
+11 1821 HIT settle 3.8
+12 2438 HIT settle 3.8
+13 96  settle 1.0
+14 2274 HIT settle 1.0
+15 2407 HIT settle 1.0
+16 2250 HIT settle 2.4
+17 2252 HIT settle 1.0
+18 2309 HIT settle 2.4
+19 2257 HIT settle 1.0
+20 100  settle 1.0
+21 2448 HIT settle 3.8
+22 2393 HIT settle 3.8
+23 95  settle 0.8
+24 3524 HIT settle 1.0
+25 2147 HIT settle 1.0
+26 62  settle 1.0
+27 65  settle 1.0
+28 2048 HIT settle 3.8
+29 2378 HIT settle 3.8
+30 50  settle 1.0
+31 75  settle 1.0
+32 2005 HIT settle 3.8
+33 60  settle 1.0
+34 1221 HIT settle 1.0
+35 4340 HIT settle 3.7
+36 4858 HIT settle 1.0
+37 2259 HIT settle 3.8
+38 2298 HIT settle 3.8
+39 1717 HIT settle 3.8
+40 2607 HIT settle 1.0
+41 2164 HIT settle 3.8
+42 7524 HIT settle 3.8
+43 2424 HIT settle 3.8
+44 83  settle 1.0
+45 2395 HIT settle 1.0
+46 88  settle 1.0
+47 71  settle 1.0
+48 66  settle 1.0
+49 78  settle 1.0
+lights0 0 2333 HIT
+lights0 1 2329 HIT
+lights0 2 3206 HIT
+lights0 3 3232 HIT
+lights0 4 72 
+lights0 5 40 
+lights0 6 962 HIT
+lights0 7 969 HIT
+lights0 8 2352 HIT
+lights0 9 2330 HIT
+lights0 10 3222 HIT
+lights0 11 3225 HIT
+lights0 12 82 
+lights0 13 61 
+lights0 14 981 HIT
+lights0 15 970 HIT
+lights0 16 2335 HIT
+lights0 17 2344 HIT
+lights0 18 3243 HIT
+lights0 19 3240 HIT
+lights0 20 91 
+lights0 21 67 
+lights0 22 972 HIT
+lights0 23 969 HIT
+lights0 24 2340 HIT
+lights0 25 2370 HIT
+lights0 26 3268 HIT
+lights0 27 3195 HIT
+lights0 28 95 
+lights0 29 98 
+lights0 30 954 HIT
+lights0 31 949 HIT
+lights0 32 3165 HIT
+lights0 33 3168 HIT
+lights0 34 4091 HIT
+lights0 35 4094 HIT
+lights0 36 921 HIT
+lights0 37 945 HIT
+lights0 38 1820 HIT
+lights0 39 1811 HIT
+lights0 40 3227 HIT
+lights0 41 3160 HIT
+lights0 42 4091 HIT
+lights0 43 4041 HIT
+lights0 44 930 HIT
+lights0 45 940 HIT
+lights0 46 1850 HIT
+lights0 47 1829 HIT
+lights0 48 3194 HIT
+lights0 49 3168 HIT
+lights0 50 4076 HIT
+lights0 51 4125 HIT
+lights0 52 951 HIT
+lights0 53 965 HIT
+lights0 54 1863 HIT
+lights0 55 1849 HIT
+lights0 56 3234 HIT
+lights0 57 3278 HIT
+lights0 58 4103 HIT
+lights0 59 4127 HIT
+lights0 60 965 HIT
+lights0 61 980 HIT
+lights0 62 1933 HIT
+lights0 63 1866 HIT
+lights0 64 3385 HIT
+lights0 65 3433 HIT
+lights0 66 4334 HIT
+lights0 67 4321 HIT
+lights0 68 1155 HIT
+lights0 69 1130 HIT
+lights0 70 2073 HIT
+lights0 71 2061 HIT
+lights0 72 3434 HIT
+lights0 73 3491 HIT
+lights0 74 4325 HIT
+lights0 75 4344 HIT
+lights0 76 1209 HIT
+lights0 77 1192 HIT
+lights0 78 2129 HIT
+lights0 79 2102 HIT
+lights0 80 3511 HIT
+lights0 81 3463 HIT
+lights0 82 4407 HIT
+lights0 83 4388 HIT
+lights0 84 1257 HIT
+lights0 85 1239 HIT
+lights0 86 2154 HIT
+lights0 87 2229 HIT
+lights0 88 3539 HIT
+lights0 89 3516 HIT
+lights0 90 4450 HIT
+lights0 91 4498 HIT
+lights0 92 1275 HIT
+lights0 93 1359 HIT
+lights0 94 2260 HIT
+lights0 95 2272 HIT
+lights0 96 4410 HIT
+lights0 97 4448 HIT
+lights0 98 5385 HIT
+lights0 99 5395 HIT
+lights0 100 2248 HIT
+lights0 101 2268 HIT
+lights0 102 3211 HIT
+lights0 103 3212 HIT
+lights0 104 4495 HIT
+lights0 105 4499 HIT
+lights0 106 5488 HIT
+lights0 107 5497 HIT
+lights0 108 2396 HIT
+lights0 109 2401 HIT
+lights0 110 3314 HIT
+lights0 111 3308 HIT
+lights0 112 4683 HIT
+lights0 113 4716 HIT
+lights0 114 5511 HIT
+lights0 115 5607 HIT
+lights0 116 2532 HIT
+lights0 117 2515 HIT
+lights0 118 3485 HIT
+lights0 119 3464 HIT
+lights0 120 4742 HIT
+lights0 121 4829 HIT
+lights0 122 5706 HIT
+lights0 123 5688 HIT
+lights0 124 2633 HIT
+lights0 125 2613 HIT
+lights0 126 3561 HIT
+lights0 127 3628 HIT
+lights0 128 3118 HIT
+lights0 129 3084 HIT
+lights0 130 4055 HIT
+lights0 131 4055 HIT
+lights0 132 1038 HIT
+lights0 133 1125 HIT
+lights0 134 1893 HIT
+lights0 135 2054 HIT
+lights0 136 3314 HIT
+lights0 137 3293 HIT
+lights0 138 4288 HIT
+lights0 139 4241 HIT
+lights0 140 1225 HIT
+lights0 141 1228 HIT
+lights0 142 2119 HIT
+lights0 143 2105 HIT
+lights0 144 3470 HIT
+lights0 145 3548 HIT
+lights0 146 4473 HIT
+lights0 147 4506 HIT
+lights0 148 1537 HIT
+lights0 149 1425 HIT
+lights0 150 2498 HIT
+lights0 151 2435 HIT
+lights0 152 3860 HIT
+lights0 153 3687 HIT
+lights0 154 4706 HIT
+lights0 155 4748 HIT
+lights0 156 1660 HIT
+lights0 157 1749 HIT
+lights0 158 2591 HIT
+lights0 159 2678 HIT
+lights0 160 4757 HIT
+lights0 161 4883 HIT
+lights0 162 5880 HIT
+lights0 163 5865 HIT
+lights0 164 2938 HIT
+lights0 165 2795 HIT
+lights0 166 3802 HIT
+lights0 167 3831 HIT
+lights0 168 5183 HIT
+lights0 169 5269 HIT
+lights0 170 6041 HIT
+lights0 171 6147 HIT
+lights0 172 3110 HIT
+lights0 173 3268 HIT
+lights0 174 4208 HIT
+lights0 175 4154 HIT
+lights0 176 5269 HIT
+lights0 177 5421 HIT
+lights0 178 6331 HIT
+lights0 179 6444 HIT
+lights0 180 3395 HIT
+lights0 181 3455 HIT
+lights0 182 4324 HIT
+lights0 183 4522 HIT
+lights0 184 5688 HIT
+lights0 185 5789 HIT
+lights0 186 6631 HIT
+lights0 187 6660 HIT
+lights0 188 3656 HIT
+lights0 189 3791 HIT
+lights0 190 4702 HIT
+lights0 191 4861 HIT
+lights0 192 6088 HIT
+lights0 193 6279 HIT
+lights0 194 7103 HIT
+lights0 195 7044 HIT
+lights0 196 4192 HIT
+lights0 197 4222 HIT
+lights0 198 5269 HIT
+lights0 199 5081 HIT
+lights0 200 6521 HIT
+lights0 201 6533 HIT
+lights0 202 7369 HIT
+lights0 203 7470 HIT
+lights0 204 4547 HIT
+lights0 205 4565 HIT
+lights0 206 5513 HIT
+lights0 207 5613 HIT
+lights0 208 6666 HIT
+lights0 209 6709 HIT
+lights0 210 7710 HIT
+lights0 211 7862 HIT
+lights0 212 4883 HIT
+lights0 213 4888 HIT
+lights0 214 5798 HIT
+lights0 215 5957 HIT
+lights0 216 6959 HIT
+lights0 217 7150 HIT
+lights0 218 7981 HIT
+lights0 219 8092 HIT
+lights0 220 5302 HIT
+lights0 221 5172 HIT
+lights0 222 6234 HIT
+lights0 223 6337 HIT
+lights0 224 8281 HIT
+lights0 225 8194 HIT
+lights0 226 9167 HIT
+lights0 227 9226 HIT
+lights0 228 6477 HIT
+lights0 229 6463 HIT
+lights0 230 7433 HIT
+lights0 231 7440 HIT
+lights0 232 8639 HIT
+lights0 233 8658 HIT
+lights0 234 9509 HIT
+lights0 235 9595 HIT
+lights0 236 6899 HIT
+lights0 237 6832 HIT
+lights0 238 7781 HIT
+lights0 239 7804 HIT
+lights0 240 9079 HIT
+lights0 241 9053 HIT
+lights0 242 10046 HIT
+lights0 243 10044 HIT
+lights0 244 7098 HIT
+lights0 245 7285 HIT
+lights0 246 8117 HIT
+lights0 247 8262 HIT
+lights0 248 9218 HIT
+lights0 249 9287 HIT
+lights0 250 10247 HIT
+lights0 251 10316 HIT
+lights0 252 7463 HIT
+lights0 253 7614 HIT
+lights0 254 8464 HIT
+lights0 255 8471 HIT
+lights1 0 86 
+lights1 1 107 
+lights1 2 76 
+lights1 3 136 
+lights1 4 96 
+lights1 5 104 
+lights1 6 115 
+lights1 7 123 
+lights1 8 94 
+lights1 9 99 
+lights1 10 78 
+lights1 11 112 
+lights1 12 104 
+lights1 13 89 
+lights1 14 80 
+lights1 15 124 
+lights1 16 74 
+lights1 17 84 
+lights1 18 101 
+lights1 19 106 
+lights1 20 104 
+lights1 21 124 
+lights1 22 99 
+lights1 23 125 
+lights1 24 87 
+lights1 25 80 
+lights1 26 101 
+lights1 27 94 
+lights1 28 113 
+lights1 29 139 
+lights1 30 112 
+lights1 31 111 
+lights1 32 97 
+lights1 33 132 
+lights1 34 72 
+lights1 35 65 
+lights1 36 138 
+lights1 37 115 
+lights1 38 109 
+lights1 39 128 
+lights1 40 132 
+lights1 41 145 
+lights1 42 92 
+lights1 43 123 
+lights1 44 121 
+lights1 45 130 
+lights1 46 90 
+lights1 47 120 
+lights1 48 95 
+lights1 49 145 
+lights1 50 122 
+lights1 51 150 
+lights1 52 156 
+lights1 53 139 
+lights1 54 145 
+lights1 55 101 
+lights1 56 146 
+lights1 57 118 
+lights1 58 148 
+lights1 59 156 
+lights1 60 175 
+lights1 61 181 
+lights1 62 156 
+lights1 63 154 
+lights1 64 165 
+lights1 65 180 
+lights1 66 202 
+lights1 67 213 
+lights1 68 195 
+lights1 69 235 
+lights1 70 188 
+lights1 71 219 
+lights1 72 164 
+lights1 73 202 
+lights1 74 220 
+lights1 75 199 
+lights1 76 198 
+lights1 77 249 
+lights1 78 243 
+lights1 79 237 
+lights1 80 235 
+lights1 81 230 
+lights1 82 240 
+lights1 83 203 
+lights1 84 298 HIT
+lights1 85 222 
+lights1 86 259 HIT
+lights1 87 251 HIT
+lights1 88 301 HIT
+lights1 89 248 
+lights1 90 260 HIT
+lights1 91 280 HIT
+lights1 92 352 HIT
+lights1 93 302 HIT
+lights1 94 274 HIT
+lights1 95 371 HIT
+lights1 96 320 HIT
+lights1 97 341 HIT
+lights1 98 353 HIT
+lights1 99 359 HIT
+lights1 100 421 HIT
+lights1 101 356 HIT
+lights1 102 372 HIT
+lights1 103 384 HIT
+lights1 104 465 HIT
+lights1 105 414 HIT
+lights1 106 424 HIT
+lights1 107 413 HIT
+lights1 108 431 HIT
+lights1 109 454 HIT
+lights1 110 490 HIT
+lights1 111 479 HIT
+lights1 112 11147 HIT
+lights1 113 530 HIT
+lights1 114 515 HIT
+lights1 115 538 HIT
+lights1 116 595 HIT
+lights1 117 542 HIT
+lights1 118 558 HIT
+lights1 119 567 HIT
+lights1 120 601 HIT
+lights1 121 619 HIT
+lights1 122 625 HIT
+lights1 123 673 HIT
+lights1 124 657 HIT
+lights1 125 667 HIT
+lights1 126 604 HIT
+lights1 127 768 HIT
+lights1 128 771 HIT
+lights1 129 793 HIT
+lights1 130 767 HIT
+lights1 131 850 HIT
+lights1 132 872 HIT
+lights1 133 801 HIT
+lights1 134 806 HIT
+lights1 135 858 HIT
+lights1 136 896 HIT
+lights1 137 829 HIT
+lights1 138 880 HIT
+lights1 139 4075 HIT
+lights1 140 5770 HIT
+lights1 141 6826 HIT
+lights1 142 969 HIT
+lights1 143 1004 HIT
+lights1 144 1011 HIT
+lights1 145 1027 HIT
+lights1 146 1090 HIT
+lights1 147 1031 HIT
+lights1 148 1043 HIT
+lights1 149 1169 HIT
+lights1 150 1088 HIT
+lights1 151 1155 HIT
+lights1 152 1133 HIT
+lights1 153 1268 HIT
+lights1 154 1208 HIT
+lights1 155 1206 HIT
+lights1 156 1349 HIT
+lights1 157 1290 HIT
+lights1 158 1374 HIT
+lights1 159 1383 HIT
+lights1 160 1426 HIT
+lights1 161 1421 HIT
+lights1 162 1520 HIT
+lights1 163 1522 HIT
+lights1 164 1474 HIT
+lights1 165 1553 HIT
+lights1 166 1547 HIT
+lights1 167 1619 HIT
+lights1 168 1581 HIT
+lights1 169 1564 HIT
+lights1 170 1767 HIT
+lights1 171 1702 HIT
+lights1 172 1697 HIT
+lights1 173 1762 HIT
+lights1 174 1800 HIT
+lights1 175 1679 HIT
+lights1 176 1852 HIT
+lights1 177 1859 HIT
+lights1 178 1792 HIT
+lights1 179 2423 HIT
+lights1 180 2441 HIT
+lights1 181 2937 HIT
+lights1 182 2927 HIT
+lights1 183 3375 HIT
+lights1 184 2032 HIT
+lights1 185 2211 HIT
+lights1 186 2090 HIT
+lights1 187 2096 HIT
+lights1 188 2185 HIT
+lights1 189 2222 HIT
+lights1 190 2224 HIT
+lights1 191 2249 HIT
+lights1 192 2302 HIT
+lights1 193 2279 HIT
+lights1 194 2444 HIT
+lights1 195 2377 HIT
+lights1 196 2589 HIT
+lights1 197 2356 HIT
+lights1 198 2573 HIT
+lights1 199 2490 HIT
+lights1 200 2552 HIT
+lights1 201 2556 HIT
+lights1 202 2600 HIT
+lights1 203 2596 HIT
+lights1 204 2802 HIT
+lights1 205 2782 HIT
+lights1 206 2724 HIT
+lights1 207 2830 HIT
+lights1 208 2911 HIT
+lights1 209 2965 HIT
+lights1 210 2950 HIT
+lights1 211 2967 HIT
+lights1 212 3167 HIT
+lights1 213 3181 HIT
+lights1 214 3097 HIT
+lights1 215 3235 HIT
+lights1 216 3242 HIT
+lights1 217 3268 HIT
+lights1 218 3105 HIT
+lights1 219 3219 HIT
+lights1 220 3284 HIT
+lights1 221 3341 HIT
+lights1 222 3391 HIT
+lights1 223 3319 HIT
+lights1 224 3398 HIT
+lights1 225 3438 HIT
+lights1 226 3568 HIT
+lights1 227 3659 HIT
+lights1 228 3536 HIT
+lights1 229 3568 HIT
+lights1 230 3673 HIT
+lights1 231 3781 HIT
+lights1 232 3807 HIT
+lights1 233 3709 HIT
+lights1 234 3907 HIT
+lights1 235 3932 HIT
+lights1 236 3935 HIT
+lights1 237 3842 HIT
+lights1 238 3979 HIT
+lights1 239 4134 HIT
+lights1 240 4114 HIT
+lights1 241 4216 HIT
+lights1 242 4116 HIT
+lights1 243 4146 HIT
+lights1 244 4204 HIT
+lights1 245 4334 HIT
+lights1 246 4323 HIT
+lights1 247 4345 HIT
+lights1 248 4476 HIT
+lights1 249 4645 HIT
+lights1 250 4573 HIT
+lights1 251 4548 HIT
+lights1 252 4388 HIT
+lights1 253 4359 HIT
+lights1 254 4323 HIT
+lights1 255 4600 HIT
+back1 0 93 
+back1 1 110 
+back1 2 111 
+back1 3 83 
+back1 4 74 
+back1 5 76 
+back1 6 101 
+back1 7 74 
+back1 8 112 
+back1 9 139 
+back1 10 68 
+back1 11 80 
+back1 12 100 
+back1 13 91 
+back1 14 86 
+back1 15 94 
+back1 16 57 
+back1 17 77 
+back1 18 89 
+back1 19 103 
+back1 20 117 
+back1 21 92 
+back1 22 97 
+back1 23 85 
+back1 24 104 
+back1 25 91 
+back1 26 72 
+back1 27 75 
+back1 28 106 
+back1 29 69 
+back1 30 82 
+back1 31 104 
+back1 32 79 
+back1 33 94 
+back1 34 81 
+back1 35 104 
+back1 36 108 
+back1 37 91 
+back1 38 112 
+back1 39 92 
+back1 40 75 
+back1 41 109 
+back1 42 89 
+back1 43 135 
+back1 44 92 
+back1 45 84 
+back1 46 74 
+back1 47 115 
+back1 48 106 
+back1 49 141 
+back1 50 123 
+back1 51 122 
+back1 52 132 
+back1 53 134 
+back1 54 138 
+back1 55 77 
+back1 56 109 
+back1 57 137 
+back1 58 107 
+back1 59 112 
+back1 60 114 
+back1 61 163 
+back1 62 135 
+back1 63 150 
+back1 64 144 
+back1 65 138 
+back1 66 126 
+back1 67 104 
+back1 68 162 
+back1 69 152 
+back1 70 139 
+back1 71 149 
+back1 72 166 
+back1 73 127 
+back1 74 158 
+back1 75 178 
+back1 76 180 
+back1 77 157 
+back1 78 144 
+back1 79 159 
+back1 80 163 
+back1 81 169 
+back1 82 205 
+back1 83 213 
+back1 84 248 
+back1 85 203 
+back1 86 177 
+back1 87 155 
+back1 88 239 
+back1 89 205 
+back1 90 214 
+back1 91 217 
+back1 92 245 
+back1 93 210 
+back1 94 274 HIT
+back1 95 292 HIT
+back1 96 236 
+back1 97 262 HIT
+back1 98 309 HIT
+back1 99 361 HIT
+back1 100 305 HIT
+back1 101 309 HIT
+back1 102 325 HIT
+back1 103 354 HIT
+back1 104 324 HIT
+back1 105 299 HIT
+back1 106 306 HIT
+back1 107 339 HIT
+back1 108 359 HIT
+back1 109 371 HIT
+back1 110 428 HIT
+back1 111 382 HIT
+back1 112 351 HIT
+back1 113 402 HIT
+back1 114 416 HIT
+back1 115 413 HIT
+back1 116 411 HIT
+back1 117 420 HIT
+back1 118 466 HIT
+back1 119 454 HIT
+back1 120 482 HIT
+back1 121 475 HIT
+back1 122 521 HIT
+back1 123 487 HIT
+back1 124 493 HIT
+back1 125 476 HIT
+back1 126 509 HIT
+back1 127 587 HIT
+back1 128 494 HIT
+back1 129 645 HIT
+back1 130 526 HIT
+back1 131 572 HIT
+back1 132 608 HIT
+back1 133 568 HIT
+back1 134 527 HIT
+back1 135 628 HIT
+back1 136 636 HIT
+back1 137 652 HIT
+back1 138 676 HIT
+back1 139 735 HIT
+back1 140 731 HIT
+back1 141 721 HIT
+back1 142 739 HIT
+back1 143 857 HIT
+back1 144 752 HIT
+back1 145 720 HIT
+back1 146 816 HIT
+back1 147 890 HIT
+back1 148 830 HIT
+back1 149 929 HIT
+back1 150 943 HIT
+back1 151 941 HIT
+back1 152 988 HIT
+back1 153 869 HIT
+back1 154 910 HIT
+back1 155 1068 HIT
+back1 156 984 HIT
+back1 157 959 HIT
+back1 158 1077 HIT
+back1 159 1062 HIT
+back1 160 1186 HIT
+back1 161 1110 HIT
+back1 162 1163 HIT
+back1 163 1084 HIT
+back1 164 1225 HIT
+back1 165 1192 HIT
+back1 166 1244 HIT
+back1 167 1221 HIT
+back1 168 1320 HIT
+back1 169 1227 HIT
+back1 170 1359 HIT
+back1 171 1320 HIT
+back1 172 1302 HIT
+back1 173 1258 HIT
+back1 174 1317 HIT
+back1 175 1317 HIT
+back1 176 1477 HIT
+back1 177 1487 HIT
+back1 178 1503 HIT
+back1 179 1575 HIT
+back1 180 1483 HIT
+back1 181 1395 HIT
+back1 182 1563 HIT
+back1 183 1636 HIT
+back1 184 1578 HIT
+back1 185 1663 HIT
+back1 186 1666 HIT
+back1 187 1665 HIT
+back1 188 1734 HIT
+back1 189 1718 HIT
+back1 190 1827 HIT
+back1 191 1755 HIT
+back1 192 1749 HIT
+back1 193 1873 HIT
+back1 194 1842 HIT
+back1 195 1762 HIT
+back1 196 1872 HIT
+back1 197 1857 HIT
+back1 198 2030 HIT
+back1 199 1940 HIT
+back1 200 1941 HIT
+back1 201 2044 HIT
+back1 202 1903 HIT
+back1 203 2143 HIT
+back1 204 2113 HIT
+back1 205 2143 HIT
+back1 206 2102 HIT
+back1 207 2154 HIT
+back1 208 2157 HIT
+back1 209 2241 HIT
+back1 210 2264 HIT
+back1 211 2263 HIT
+back1 212 2196 HIT
+back1 213 2231 HIT
+back1 214 2347 HIT
+back1 215 2422 HIT
+back1 216 2423 HIT
+back1 217 2540 HIT
+back1 218 2495 HIT
+back1 219 2411 HIT
+back1 220 2617 HIT
+back1 221 2748 HIT
+back1 222 2699 HIT
+back1 223 2651 HIT
+back1 224 2855 HIT
+back1 225 2780 HIT
+back1 226 2858 HIT
+back1 227 2836 HIT
+back1 228 2857 HIT
+back1 229 2874 HIT
+back1 230 3003 HIT
+back1 231 2981 HIT
+back1 232 2940 HIT
+back1 233 2884 HIT
+back1 234 3057 HIT
+back1 235 3004 HIT
+back1 236 3206 HIT
+back1 237 3116 HIT
+back1 238 3097 HIT
+back1 239 3146 HIT
+back1 240 3207 HIT
+back1 241 3163 HIT
+back1 242 3202 HIT
+back1 243 3281 HIT
+back1 244 3266 HIT
+back1 245 3303 HIT
+back1 246 3247 HIT
+back1 247 3333 HIT
+back1 248 3437 HIT
+back1 249 3372 HIT
+back1 250 3509 HIT
+back1 251 3486 HIT
+back1 252 3435 HIT
+back1 253 3491 HIT
+back1 254 3663 HIT
+back1 255 3756 HIT
+cruise1 0 97 
+cruise1 4 83 
+cruise1 8 113 
+cruise1 12 97 
+cruise1 16 122 
+cruise1 20 94 
+cruise1 24 76 
+cruise1 28 66 
+cruise1 32 185 
+cruise1 36 1629 HIT
+cruise1 40 1626 HIT
+cruise1 44 1626 HIT
+cruise1 48 103 
+cruise1 52 95 
+cruise1 56 92 
+cruise1 60 91 
+cruise1 64 82 
+cruise1 68 91 
+cruise1 72 110 
+cruise1 76 86 
+cruise1 80 88 
+cruise1 84 98 
+cruise1 88 93 
+cruise1 92 81 
+cruise1 96 108 
+cruise1 100 87 
+cruise1 104 118 
+cruise1 108 89 
+cruise1 112 119 
+cruise1 116 100 
+cruise1 120 91 
+cruise1 124 106 
+cruise1 128 125 
+cruise1 132 105 
+cruise1 136 68 
+cruise1 140 112 
+cruise1 144 117 
+cruise1 148 118 
+cruise1 152 89 
+cruise1 156 151 
+cruise1 160 123 
+cruise1 164 90 
+cruise1 168 96 
+cruise1 172 125 
+cruise1 176 109 
+cruise1 180 126 
+cruise1 184 98 
+cruise1 188 108 
+cruise1 192 108 
+cruise1 196 121 
+cruise1 200 136 
+cruise1 204 113 
+cruise1 208 106 
+cruise1 212 142 
+cruise1 216 114 
+cruise1 220 167 
+cruise1 224 124 
+cruise1 228 134 
+cruise1 232 161 
+cruise1 236 113 
+cruise1 240 125 
+cruise1 244 138 
+cruise1 248 122 
+cruise1 252 121 
+cruise2 0 122 
+cruise2 4 122 
+cruise2 8 119 
+cruise2 12 588 HIT
+cruise2 16 396 HIT
+cruise2 20 1146 HIT
+cruise2 24 4621 HIT
+cruise2 28 1483 HIT
+cruise2 32 1523 HIT
+cruise2 36 1472 HIT
+cruise2 40 1433 HIT
+cruise2 44 1461 HIT
+cruise2 48 1476 HIT
+cruise2 52 1559 HIT
+cruise2 56 1426 HIT
+cruise2 60 1554 HIT
+cruise2 64 1512 HIT
+cruise2 68 1533 HIT
+cruise2 72 1538 HIT
+cruise2 76 1572 HIT
+cruise2 80 1552 HIT
+cruise2 84 1609 HIT
+cruise2 88 1619 HIT
+cruise2 92 1677 HIT
+cruise2 96 1610 HIT
+cruise2 100 1578 HIT
+cruise2 104 1654 HIT
+cruise2 108 1624 HIT
+cruise2 112 1681 HIT
+cruise2 116 1565 HIT
+cruise2 120 1685 HIT
+cruise2 124 1705 HIT
+cruise2 128 1626 HIT
+cruise2 132 1565 HIT
+cruise2 136 1615 HIT
+cruise2 140 1631 HIT
+cruise2 144 1650 HIT
+cruise2 148 1799 HIT
+cruise2 152 1814 HIT
+cruise2 156 1763 HIT
+cruise2 160 1718 HIT
+cruise2 164 1728 HIT
+cruise2 168 1732 HIT
+cruise2 172 1776 HIT
+cruise2 176 1843 HIT
+cruise2 180 1823 HIT
+cruise2 184 1819 HIT
+cruise2 188 1858 HIT
+cruise2 192 1893 HIT
+cruise2 196 1962 HIT
+cruise2 200 1957 HIT
+cruise2 204 1909 HIT
+cruise2 208 2018 HIT
+cruise2 212 2024 HIT
+cruise2 216 2036 HIT
+cruise2 220 1997 HIT
+cruise2 224 2092 HIT
+cruise2 228 2015 HIT
+cruise2 232 2029 HIT
+cruise2 236 2064 HIT
+cruise2 240 2203 HIT
+cruise2 244 2196 HIT
+cruise2 248 2112 HIT
+cruise2 252 2238 HIT
+cruise3 0 91 
+cruise3 4 91 
+cruise3 8 89 
+cruise3 12 91 
+cruise3 16 114 
+cruise3 20 119 
+cruise3 24 99 
+cruise3 28 108 
+cruise3 32 113 
+cruise3 36 115 
+cruise3 40 100 
+cruise3 44 101 
+cruise3 48 131 
+cruise3 52 103 
+cruise3 56 86 
+cruise3 60 89 
+cruise3 64 92 
+cruise3 68 134 
+cruise3 72 115 
+cruise3 76 95 
+cruise3 80 104 
+cruise3 84 86 
+cruise3 88 97 
+cruise3 92 82 
+cruise3 96 109 
+cruise3 100 106 
+cruise3 104 90 
+cruise3 108 138 
+cruise3 112 85 
+cruise3 116 107 
+cruise3 120 157 
+cruise3 124 96 
+cruise3 128 130 
+cruise3 132 131 
+cruise3 136 99 
+cruise3 140 90 
+cruise3 144 78 
+cruise3 148 88 
+cruise3 152 171 
+cruise3 156 148 
+cruise3 160 95 
+cruise3 164 106 
+cruise3 168 90 
+cruise3 172 116 
+cruise3 176 106 
+cruise3 180 94 
+cruise3 184 96 
+cruise3 188 117 
+cruise3 192 99 
+cruise3 196 141 
+cruise3 200 138 
+cruise3 204 110 
+cruise3 208 98 
+cruise3 212 82 
+cruise3 216 109 
+cruise3 220 113 
+cruise3 224 145 
+cruise3 228 140 
+cruise3 232 105 
+cruise3 236 132 
+cruise3 240 85 
+cruise3 244 152 
+cruise3 248 153 
+cruise3 252 111 
+cruise4 0 757 HIT
+cruise4 4 740 HIT
+cruise4 8 738 HIT
+cruise4 12 747 HIT
+cruise4 16 769 HIT
+cruise4 20 737 HIT
+cruise4 24 755 HIT
+cruise4 28 726 HIT
+cruise4 32 743 HIT
+cruise4 36 754 HIT
+cruise4 40 761 HIT
+cruise4 44 765 HIT
+cruise4 48 772 HIT
+cruise4 52 726 HIT
+cruise4 56 706 HIT
+cruise4 60 740 HIT
+cruise4 64 721 HIT
+cruise4 68 743 HIT
+cruise4 72 735 HIT
+cruise4 76 727 HIT
+cruise4 80 756 HIT
+cruise4 84 733 HIT
+cruise4 88 764 HIT
+cruise4 92 757 HIT
+cruise4 96 776 HIT
+cruise4 100 753 HIT
+cruise4 104 753 HIT
+cruise4 108 764 HIT
+cruise4 112 721 HIT
+cruise4 116 736 HIT
+cruise4 120 743 HIT
+cruise4 124 726 HIT
+cruise4 128 108 
+cruise4 132 96 
+cruise4 136 139 
+cruise4 140 106 
+cruise4 144 128 
+cruise4 148 77 
+cruise4 152 105 
+cruise4 156 86 
+cruise4 160 67 
+cruise4 164 85 
+cruise4 168 115 
+cruise4 172 95 
+cruise4 176 76 
+cruise4 180 101 
+cruise4 184 87 
+cruise4 188 94 
+cruise4 192 121 
+cruise4 196 132 
+cruise4 200 125 
+cruise4 204 95 
+cruise4 208 102 
+cruise4 212 90 
+cruise4 216 139 
+cruise4 220 105 
+cruise4 224 116 
+cruise4 228 70 
+cruise4 232 114 
+cruise4 236 69 
+cruise4 240 55 
+cruise4 244 111 
+cruise4 248 92 
+cruise4 252 119 
+cruise5 0 114 
+cruise5 4 2991 HIT
+cruise5 8 2950 HIT
+cruise5 12 3003 HIT
+cruise5 16 2963 HIT
+cruise5 20 2967 HIT
+cruise5 24 2971 HIT
+cruise5 28 2989 HIT
+cruise5 32 2993 HIT
+cruise5 36 3009 HIT
+cruise5 40 2976 HIT
+cruise5 44 2996 HIT
+cruise5 48 3027 HIT
+cruise5 52 3016 HIT
+cruise5 56 2982 HIT
+cruise5 60 2997 HIT
+cruise5 64 2998 HIT
+cruise5 68 2983 HIT
+cruise5 72 2974 HIT
+cruise5 76 2965 HIT
+cruise5 80 2994 HIT
+cruise5 84 3040 HIT
+cruise5 88 2985 HIT
+cruise5 92 3035 HIT
+cruise5 96 3002 HIT
+cruise5 100 2978 HIT
+cruise5 104 2970 HIT
+cruise5 108 2987 HIT
+cruise5 112 2993 HIT
+cruise5 116 3012 HIT
+cruise5 120 2993 HIT
+cruise5 124 3022 HIT
+cruise5 128 2966 HIT
+cruise5 132 2992 HIT
+cruise5 136 2958 HIT
+cruise5 140 2978 HIT
+cruise5 144 2995 HIT
+cruise5 148 2961 HIT
+cruise5 152 2976 HIT
+cruise5 156 2981 HIT
+cruise5 160 3001 HIT
+cruise5 164 2985 HIT
+cruise5 168 2987 HIT
+cruise5 172 2979 HIT
+cruise5 176 3008 HIT
+cruise5 180 3022 HIT
+cruise5 184 2976 HIT
+cruise5 188 3032 HIT
+cruise5 192 2978 HIT
+cruise5 196 3053 HIT
+cruise5 200 2993 HIT
+cruise5 204 3015 HIT
+cruise5 208 3001 HIT
+cruise5 212 3003 HIT
+cruise5 216 3026 HIT
+cruise5 220 3041 HIT
+cruise5 224 3003 HIT
+cruise5 228 3010 HIT
+cruise5 232 2986 HIT
+cruise5 236 2989 HIT
+cruise5 240 3005 HIT
+cruise5 244 2997 HIT
+cruise5 248 2989 HIT
+cruise5 252 3004 HIT
+cruise6 0 109 
+cruise6 4 3025 HIT
+cruise6 8 2992 HIT
+cruise6 12 2987 HIT
+cruise6 16 2973 HIT
+cruise6 20 3932 HIT
+cruise6 24 3927 HIT
+cruise6 28 3941 HIT
+cruise6 32 3940 HIT
+cruise6 36 3919 HIT
+cruise6 40 3957 HIT
+cruise6 44 3924 HIT
+cruise6 48 3923 HIT
+cruise6 52 3905 HIT
+cruise6 56 3675 HIT
+cruise6 60 3620 HIT
+cruise6 64 3659 HIT
+cruise6 68 3623 HIT
+cruise6 72 3651 HIT
+cruise6 76 3656 HIT
+cruise6 80 3678 HIT
+cruise6 84 3682 HIT
+cruise6 88 3643 HIT
+cruise6 92 3645 HIT
+cruise6 96 3622 HIT
+cruise6 100 3652 HIT
+cruise6 104 3647 HIT
+cruise6 108 3663 HIT
+cruise6 112 3625 HIT
+cruise6 116 3678 HIT
+cruise6 120 3635 HIT
+cruise6 124 3622 HIT
+cruise6 128 3653 HIT
+cruise6 132 3638 HIT
+cruise6 136 3659 HIT
+cruise6 140 3641 HIT
+cruise6 144 3693 HIT
+cruise6 148 3655 HIT
+cruise6 152 3616 HIT
+cruise6 156 3643 HIT
+cruise6 160 3665 HIT
+cruise6 164 3659 HIT
+cruise6 168 3639 HIT
+cruise6 172 3658 HIT
+cruise6 176 3671 HIT
+cruise6 180 3684 HIT
+cruise6 184 3647 HIT
+cruise6 188 3645 HIT
+cruise6 192 3689 HIT
+cruise6 196 3666 HIT
+cruise6 200 3646 HIT
+cruise6 204 3655 HIT
+cruise6 208 3639 HIT
+cruise6 212 3666 HIT
+cruise6 216 3614 HIT
+cruise6 220 3694 HIT
+cruise6 224 3701 HIT
+cruise6 228 3652 HIT
+cruise6 232 3647 HIT
+cruise6 236 3664 HIT
+cruise6 240 3649 HIT
+cruise6 244 3648 HIT
+cruise6 248 3650 HIT
+cruise6 252 3650 HIT
+NIGHT2 DONE
