@@ -1552,6 +1552,9 @@ Readings and what they meant:
   Cause 2: the USB-C breakout sockets (continuity was fine, so a leak/bad joint, not an open).
   After the user reworked the connection: ok rising, err=0, all lamps on. The user will clean
   (IPA) and resolder the breakouts properly; check L<->G and H<->G read OL in ohms mode.
+  Pinned down later the same day: with the cluster unplugged but the module-side USB-C
+  breakout still on the MCP2515 terminal -> TEC=0 REC=135 (stuck); breakout removed -> TEC=128
+  REC=0 (healthy). The leak is in that **module-side breakout board** itself (D+/CAN-L to G).
 - Rule of thumb: TEC=0 + REC≈128 = transceiver sees the bus stuck dominant (unpowered
   transceiver or CAN-L pulled low). TEC=128 + REC=0 = healthy module, nobody ACKing.
 
