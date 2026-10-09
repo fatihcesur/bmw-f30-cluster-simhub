@@ -14,6 +14,7 @@ class FakeSimHub:
         self.s = serial.Serial(find_port(), 19200, timeout=0.05, write_timeout=2)
         time.sleep(2.5)                     # Nano reset
         self.pid = 255
+        self.gap = 0.012                    # s between 16-byte packets; 0.04 left CAN gaps (needles wobbled)
         self.rx = b""
 
     def _packet(self, data):
@@ -22,7 +23,7 @@ class FakeSimHub:
         for b in (self.pid, len(data), *data):
             crc = CRC[crc ^ b]
         self.s.write(bytes([1, 1, self.pid, len(data)]) + data + bytes([crc]))
-        time.sleep(0.04); self.rx += self.s.read(256)   # acks + replies, let the firmware consume
+        time.sleep(self.gap); self.rx += self.s.read(self.s.in_waiting or 1)   # acks + replies, let the firmware consume
 
     def send(self, fields):
         msg = b"\x03P" + ";".join(str(f) for f in fields).encode() + b"\n"

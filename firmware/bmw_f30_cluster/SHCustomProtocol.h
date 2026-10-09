@@ -273,6 +273,7 @@ const unsigned long SWEEP_MS = 3000;
 // Cruise set-speed marker (0x289), see the cruise block in Loop()
 const int CRUISE_SET_MIN_KMH = 30;
 const int CRUISE_SET_MAX_KMH = 110;
+const uint8_t CRUISE_SUSPENDED_B4 = 0x96;     // 0x289 byte4 while the marker is orange (TBD: icon off?)
 const unsigned long SWEEP_AFTER_WAKE_MS = 1000;
 static unsigned long wakeMuteUntil = 0;
 static bool wakeMuting = false;
@@ -1000,11 +1001,20 @@ cv = 0x00;
   // x16 little endian. Our arm was seated ~28 km/h high, so subtract that; hence no
   // marker below CRUISE_SET_MIN_KMH. Set speed comes from field 11 (oil_warn) = game
   // cruise speed + 2.
+  // BMW logic: green while cruise holds the speed; when it drops out (brake) the last set
+  // speed stays as an ORANGE marker until cruise resumes or the ignition goes off. The
+  // game reports no set speed while cruise is off, so remember it here.
+  static int memKmh = 0;
   int setKmh = oil_warn - 2;
-  bool showMarker = cruise == 1 && setKmh >= CRUISE_SET_MIN_KMH;
   if (setKmh > CRUISE_SET_MAX_KMH) setKmh = CRUISE_SET_MAX_KMH;
-  uint16_t setRaw = showMarker ? (uint16_t)((setKmh - CRUISE_MARKER_OFFSET_KMH) * 16) : 0x14;
-  unsigned char cruiseWithoutCRC[] = { 0xF0|counter4Bit, (uint8_t)(showMarker ? 0x22 : 0x00), 0xE0, 0xE1, cv, lo8(setRaw), hi8(setRaw) };
+  bool active = cruise == 1 && setKmh >= CRUISE_SET_MIN_KMH;
+  if (active) memKmh = setKmh;
+  if (EngineIgnitionOn == 0) memKmh = 0;
+  bool suspended = !active && memKmh >= CRUISE_SET_MIN_KMH;
+  uint8_t markerState = active ? 0x22 : (suspended ? 0x20 : 0x00);
+  uint16_t setRaw = (active || suspended) ? (uint16_t)(((active ? setKmh : memKmh) - CRUISE_MARKER_OFFSET_KMH) * 16) : 0x14;
+  if (suspended) cv = CRUISE_SUSPENDED_B4;   // marker needs byte4 bit7; this value keeps the cruise icon off
+  unsigned char cruiseWithoutCRC[] = { 0xF0|counter4Bit, markerState, 0xE0, 0xE1, cv, lo8(setRaw), hi8(setRaw) };
   unsigned char cruiseWithCRC[] = { crc8Calculator.get_crc8(cruiseWithoutCRC, 7, 0x82), cruiseWithoutCRC[0], cruiseWithoutCRC[1], cruiseWithoutCRC[2], cruiseWithoutCRC[3], cruiseWithoutCRC[4], cruiseWithoutCRC[5], cruiseWithoutCRC[6] };
  CAN.sendMsgBuf(0x289, 0, 8, cruiseWithCRC);
 

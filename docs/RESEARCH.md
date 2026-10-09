@@ -768,3 +768,23 @@ did not repeat in quiet retests -> room noise. Matches what F30 owners report: t
 played by the head unit through the door speakers, the KOMBI only ticks. So the chime is
 played on the PC instead: `tools/gong/gong.py` (SimHub web API; chime.wav = recorded BMW
 warning chime, kept out of git) on fuel reserve and damage >= 20 / 40 %.
+
+## Physical warning lamps lit by 0x5C0 check-control codes (Brio photos, 2026-10-09)
+
+Candidate codes came from re-reading the 1642 full frames of the old CC scan for bright
+spots outside the MID, then each code was re-sent alone and photographed head-on
+(`docs/images/lamps/`). Lamps besides the MID popup:
+
+| Lamp (position) | Colour | Codes | MID text |
+|---|---|---|---|
+| Engine (below speedo) | amber | 34, 581 | - |
+| DSC OFF (below speedo) | amber | 36 | DSC devre dışı |
+| DTC / DSC (below speedo) | amber | 184, 755 | Dinamik çekiş kontrolü (DTC) aktif |
+| Power steering (below speedo) | amber | 70, 273, 321, 496-501, 504, 627 | Direksiyon. Dikkatli sürün |
+| DSC skid car (centre column, upper) | amber | 502, 503, 659, 662 (+steering lamp), 74 (+brake) | Direksiyon / Fren sistemi |
+| Brake (!) (centre column, lower) | red | 71, 74 | Fren sistemi. Dikkatli sürün / Dikkatlice durun |
+| Seatbelt (below speedo) | red | 77, 389, 390, 279, 280, 414 | Emniyet kemerini takın / seat locks |
+| Airbag (below speedo) | red | 94, 95, 97 (97 also seatbelt) | (Arka) emniyet sistemi |
+
+Not lit by any CC code so far: ABS, battery/charge, oil pressure, coolant, TPMS lamp,
+"LIM" (0x289 bytes 1-3 swept: nothing).
