@@ -273,7 +273,7 @@ const unsigned long SWEEP_MS = 3000;
 // Cruise set-speed marker (0x289), see the cruise block in Loop()
 const int CRUISE_SET_MIN_KMH = 30;
 const int CRUISE_SET_MAX_KMH = 110;
-const uint8_t CRUISE_SUSPENDED_B4 = 0x96;     // 0x289 byte4 while the marker is orange (TBD: icon off?)
+const uint8_t CRUISE_SUSPENDED_B4 = 0x96;     // 0x289 byte4 while orange: marker and cruise icon share bit7 (swept 2026-10-09)
 const unsigned long SWEEP_AFTER_WAKE_MS = 1000;
 static unsigned long wakeMuteUntil = 0;
 static bool wakeMuting = false;
