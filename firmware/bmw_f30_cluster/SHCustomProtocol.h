@@ -268,6 +268,9 @@ const unsigned long SWEEP_MS = 3000;
 #ifndef SPEED_NEEDLE_GAIN
 #define SPEED_NEEDLE_GAIN 1.0        // >1 if the speed needle reads low everywhere
 #endif
+#ifndef SPEED_NEEDLE_OFFSET_KMH
+#define SPEED_NEEDLE_OFFSET_KMH 0.0  // km/h the speed needle sits below the marks (also at 0 km/h)
+#endif
 #ifndef CRUISE_MARKER_OFFSET_KMH
 #define CRUISE_MARKER_OFFSET_KMH 0   // km/h the cruise marker arm sits too high
 #endif
@@ -479,7 +482,10 @@ CAN.sendMsgBuf(0x1EE, 0, 2, menuButtonFrame);
 // the cluster sees speed it switches to the slow filter (bench rmode1b: stuck at 3/4 when
 // driving off 2 s after the wake). So report 0 km/h for REFUEL_HOLD_MS after that wake.
 int shownSpeed = ((long)(millis() - refuelSpeedHoldUntil) < 0) ? 0 : Speed;
-uint16_t calculatedSpeed = inSweepWindow ? (uint16_t)(260 * 64.01) : (uint16_t)((double)shownSpeed * 64.01 * SPEED_NEEDLE_GAIN); // 260 = dial's printed max
+// Needle trim (local_config.h). At standstill (byte3 0x81) the cluster parks the needle on its
+// stop whatever value we send; claiming "moving" (0x91) lifts it but pops "Park frenini
+// çözün" with the parking brake on (tested 2026-10-09), so the 0 position is mechanical.
+uint16_t calculatedSpeed = inSweepWindow ? (uint16_t)(260 * 64.01) : (uint16_t)(((double)shownSpeed * SPEED_NEEDLE_GAIN + SPEED_NEEDLE_OFFSET_KMH) * 64.01); // 260 = dial's printed max
   unsigned char speedWithoutCRC[] = { 0xC0|counter4Bit, lo8(calculatedSpeed), hi8(calculatedSpeed), (shownSpeed == 0 ? 0x81 : 0x91) };
   unsigned char speedWithCRC[] = { crc8Calculator.get_crc8(speedWithoutCRC, 4, 0xA9), speedWithoutCRC[0], speedWithoutCRC[1], speedWithoutCRC[2], speedWithoutCRC[3] };
   CAN.sendMsgBuf(0x1A1, 0, 5, speedWithCRC);	
