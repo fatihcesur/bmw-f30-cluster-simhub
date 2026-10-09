@@ -1613,3 +1613,18 @@ orange marker. Results (`markertrack.py`, Brio camera head-on):
   (stepper lost its zero); a 12 V power cycle re-homes it.
 Images: `docs/images/highlights/cruise_marker_byte6_sweep.jpg`,
 `cruise_set_speed_marker_firmware_test.jpg`.
+
+**Overnight 2026-10-09 (Brio camera)**:
+- Cruise marker: orange "suspended" state added (last set speed kept after the game drops
+  cruise, green again on resume, cleared at ignition off). 0x289 byte4 bit7 drives both the
+  marker and the cruise icon (swept 0x00-0xFE), so the icon stays on while orange.
+- Personal trims moved to the git-ignored `local_config.h` (speed needle +3 %, marker arm
+  28 km/h): the user asked not to publish values that only fit their re-seated needles.
+- Lamp inventory (see RESEARCH.md): DSC OFF, DTC, power steering, centre-column DSC (amber)
+  and brake (!) (red), airbag and seatbelt lamps with their check-control codes.
+- `tools/cc_scanner/lamphunt.py`: whole-cluster new-lamp + MID-popup hunt. 0x289 bytes 1-3
+  (all values) and every id 0x001-0x5FF with 3 patterns: no new lamp or popup ("LIM" not
+  found). The 5 hits after 08:00 (0x5B6, 5BE, 5D2, 5EE, 5F2) are daylight glare on the chrome
+  rings. Limits: frames with a wrong CRC are ignored by the cluster, and colour-only MID
+  changes (0x2A5 theme) are not detected by the grey-level MID check.
+- Not done: fuel and oil-temperature gauge calibration.

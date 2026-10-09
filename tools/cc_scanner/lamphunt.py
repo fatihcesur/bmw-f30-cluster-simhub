@@ -62,6 +62,14 @@ def score(ref, on, m):
     i = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
     return int(st[i, cv2.CC_STAT_AREA]), tuple(int(v) for v in cen[i]), new
 
+MID = (slice(895, 1060), slice(725, 1080))   # MID panel (Brio framing 2026-10-09)
+MID_MIN = 900                                  # changed MID pixels for a popup / new icon
+
+def mid_change(a, b):
+    ga = cv2.GaussianBlur(cv2.cvtColor(a[MID], cv2.COLOR_BGR2GRAY), (5, 5), 0)
+    gb = cv2.GaussianBlur(cv2.cvtColor(b[MID], cv2.COLOR_BGR2GRAY), (5, 5), 0)
+    return int((cv2.absdiff(ga, gb) > 45).sum())
+
 def save(name, ref, on, new):
     mk = on.copy(); mk[cv2.dilate(new.astype(np.uint8), np.ones((9, 9), np.uint8)) > 0] = (255, 0, 255)
     sm = lambda x: cv2.resize(x[280:1060, 60:1900], (920, 390))
@@ -81,10 +89,16 @@ def test(label, setup, undo):
     for c in undo: r.cmd(c)
     sc, pos, new = score(ref, on, m)
     hit = sc >= MIN_BLOB
-    log.writerow([label, sc, pos, int(hit), time.strftime("%H:%M:%S")])
-    if hit:
+    mc = mid_change(ref, on)
+    mid_hit = False
+    if mc >= MID_MIN:                      # clock/odometer ticks are small; a popup is big and
+        time.sleep(2.5)                    # must go away again once the frame stops
+        post = r.frame()
+        mid_hit = mid_change(on, post) >= mc // 2
+    log.writerow([label, sc, pos, int(hit), mc, int(mid_hit), time.strftime("%H:%M:%S")])
+    if hit or mid_hit:
         save(label.replace(" ", "_"), ref, on, new)
-        print(f"HIT {label} {sc}px at {pos}", flush=True)
+        print(f"HIT {label} lamp={sc}px at {pos} mid={mc}{' MID' if mid_hit else ''}", flush=True)
         t0 = time.time()
         while time.time() - t0 < 15 and score(ref, r.frame(), m)[0] >= MIN_BLOB:
             time.sleep(1)
