@@ -16,6 +16,7 @@ extern bool EDITEDSELUA;
 extern bool checkengwhenoff;
 extern bool nightThemeWithLights;
 extern bool lightsIconViaFog;
+extern bool whiteTextViaAmbient;
 extern bool backlightAlwaysOn;
 extern int setlanguage;
 extern int setcorf;
@@ -935,6 +936,13 @@ if (!nightThemeWithLights) {
 }
 uint8_t lightsFrame[] = { lightsByte, 0x00, 0xf7 };
 CAN.sendMsgBuf(0x21A, 0, 3, lightsFrame);
+// 0x2A5 (BRIG_SURR, ambient brightness) switches the MID from the orange/red night
+// theme to the white day theme (found by the SLI hunt, 2026-10-04): lets the real green
+// "lights on" icon (0x04) stay on without the red text.
+if (whiteTextViaAmbient) {
+  uint8_t ambient[] = { 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50 };
+  CAN.sendMsgBuf(0x2A5, 0, 8, ambient);
+}
 }
 
 //backlight brightness: reverted (2026-09-19) back to headlights-only, undoing the

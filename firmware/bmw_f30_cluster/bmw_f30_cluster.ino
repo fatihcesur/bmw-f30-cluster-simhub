@@ -19,8 +19,9 @@
 bool GRPMOND = false;               // set to true when u have a diesel cluster with an petrol RPM disc
 bool EDITEDSELUA = true;          // set to false if u didnt replace the simhubextras.lua in ur bmeang folder
 bool checkengwhenoff = true;     // set to false if u dont want the check engine lamp on when the engine is off
-bool nightThemeWithLights = false; // true = MID text turns red and the green "lights on" icon shows when lights are on (0x21A bit 0x04; the two can't be separated)
-bool lightsIconViaFog = true;      // with nightThemeWithLights = false: show the green front-fog icon as the "lights on" indicator instead
+bool nightThemeWithLights = true;  // true = MID text turns red and the green "lights on" icon shows when lights are on (0x21A bit 0x04; the two can't be separated)
+bool lightsIconViaFog = false;     // with nightThemeWithLights = false: show the green front-fog icon as the "lights on" indicator instead
+bool whiteTextViaAmbient = true;   // send 0x2A5 (ambient brightness = day) so the MID text stays white even with the lights icon on
 bool backlightAlwaysOn = true;     // true = dial backlight always on; false = only with headlights/parking lights
 int setlanguage = 0;            // Set to 0 for Turkish, 1 for german, 2 for Englisch (CAN ID 0x291 byte0)
 int setcorf = 1;               // Set to 1 for 1 c° and 2 for f°
