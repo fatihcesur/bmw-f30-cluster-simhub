@@ -30,10 +30,10 @@ class FakeSimHub:
         for i in range(0, len(msg), 16):       # small chunks: the firmware's ring buffer is 32 bytes
             self._packet(msg[i:i + 16])
 
-def fields(speed=0, rpm=700, fuel=81, ign=1, cons=0, warn=0, light=1, hand=0, gear="N", cruise=0, cset=0, fog=0):
+def fields(speed=0, rpm=700, fuel=81, ign=1, cons=0, warn=0, light=1, hand=0, gear="N", cruise=0, cset=0, fog=0, oil=135):
     t = time.localtime()
     f = [0] * 54
-    f[0], f[1], f[2], f[3] = speed, rpm, 135, fuel
+    f[0], f[1], f[2], f[3] = speed, rpm, oil, fuel
     f[5] = t.tm_year; f[15] = t.tm_min; f[17] = t.tm_sec; f[19] = t.tm_mday; f[21] = t.tm_mon
     f[20] = 120                      # air pressure
     f[22] = hand                     # parking brake

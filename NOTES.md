@@ -72,6 +72,10 @@ carries power and CAN — it is NOT a USB connection:
 - **SimHub must be closed before upload. Ask the user to close it from its own UI**
   — `Stop-Process -Force` skips its auto-persist and silently discards an unsaved
   Custom Serial Device formula (cost a whole session of wrong debugging once).
+- Personal trims live in the git-ignored `firmware/bmw_f30_cluster/local_config.h` (speed
+  needle gain 1.03, cruise marker offset 33 km/h as of 2026-10-09). arduino-cli does NOT
+  rebuild after a change to that header alone: compile with `--clean` or the old value
+  stays in the flashed binary.
 - `#define INCLUDE_BUTTONS` is added manually in `bmw_f30_cluster.ino`; any other
   `INCLUDE_*`-gated SimHub peripheral needs the same (SimHub's generator never runs here).
 
