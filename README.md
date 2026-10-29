@@ -115,7 +115,7 @@ internal loopback) narrow it down further.
 | `tools/bench/` | Standalone test and diagnostic sketches |
 | `tools/cc_scanner/` | Webcam-driven scanners (check-control codes, fuel, gears, UDS) with their logs |
 | `tools/gong/` | PC-side warning gong through SimHub's web API |
-| `CLAUDE.md` | Condensed rules and current state |
+| `NOTES.md` | Condensed rules and current state |
 
 ## Türkçe özet
 

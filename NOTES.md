@@ -1,6 +1,6 @@
 # BMW F30 cluster — SimHub project notes
 
-Read automatically at session start. This is the short version: rules, pin map,
+The short version of the project notes: rules, pin map,
 current state. The full dated investigation log (every experiment, dead end and
 why) lives in `docs/HISTORY.md` — grep it for a CAN ID or feature name before
 re-investigating anything. Research/candidate lists for unsolved items live in

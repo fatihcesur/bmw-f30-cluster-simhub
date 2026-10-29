@@ -300,7 +300,7 @@ static unsigned long sweepStartMs = 0;
 static bool sweepActive = false;
 // REMOVED (2026-09-23): the separate "force fuel gauge to empty for 2.5s after
 // ignition-on" test window (fuelEmptyTestActive/inFuelEmptyTestWindow) that used
-// to live here - see CLAUDE.md's fuel-sweep saga (v1-v5) for the full history.
+// to live here - see NOTES.md's fuel-sweep saga (v1-v5) for the full history.
 // That v1 version was already flagged as "likely coincidental, not reliably
 // reproducible" in the 2026-09-22 session conclusion, and this session's repeated
 // rapid reflash/SimHub-reopen cycles kept re-triggering it (it re-arms on every
@@ -591,7 +591,7 @@ if (millis() - lastDistanceUpdateMs >= 100) {
     // back down even with subsequent gentle driving - that "spikes and never
     // decays" behavior looks like a latch/fault-style stuck state (same class as
     // this cluster's other "needs a real 12V cycle to clear" quirks documented
-    // elsewhere in CLAUDE.md), not a pure distance/fuel ratio problem. A
+    // elsewhere in NOTES.md), not a pure distance/fuel ratio problem. A
     // power-cycle+gentle-driving-only test to isolate that was proposed but not
     // done before escalating to *58 instead. **Don't retry a distance-multiplier
     // hack on this line again** - both *29 and *58 were tried, *58 actively broke
@@ -604,7 +604,7 @@ if (millis() - lastDistanceUpdateMs >= 100) {
     // *100/*150 multiplier saga above was chasing the wrong cause: the range
     // display problems that motivated it turned out to trace back to a stale/
     // unsaved `customprotocol` in SimHub (see the "RESOLUTION" entry elsewhere in
-    // CLAUDE.md), not insufficient distance data. Confirmed this line was still
+    // NOTES.md), not insufficient distance data. Confirmed this line was still
     // at *58 well after that was fixed, and it was causing a NEW, real symptom:
     // range showing "----" (undisplayable) at highway speed with a well-over-
     // half-full tank - consistent with the already-documented "odometer stops
@@ -637,7 +637,7 @@ if (millis() - lastDistanceUpdateMs >= 100) {
   // (2026-09-23) No forced-empty test window anymore - see the removal note near
   // the top of Loop() for why. This is always just the real computed value now.
   // The gauge is still known to be heavily damped/slow inside the cluster's own
-  // hardware (see the older fuel-sweep-speed entries in CLAUDE.md) - that part is
+  // hardware (see the older fuel-sweep-speed entries in NOTES.md) - that part is
   // untouched and still applies.
   if (fuelRaw16 >= 0) {
     uint16_t fr = (uint16_t)fuelRaw16;
@@ -774,7 +774,7 @@ EngineIgnitionOn = 1;
 // toggle the parking-brake lamp on its own, unlike code 77 below which is clean.
 // EXPLAINED (2026-08-29): The reference project labels code 71 as
 // "Park brake error (red)", NOT seatbelt - this project's original variable name
-// ("seat_belt_indecator") was simply wrong. See CLAUDE.md before ever driving this
+// ("seat_belt_indecator") was simply wrong. See NOTES.md before ever driving this
 // one from the switch.
 uint8_t seat_belt_indecator[] = { 0x40, 71, 0x00, 0x28, 0xFF, 0xFF, 0xFF, 0xFF };
 send5c0(seat_belt_indecator);
@@ -795,7 +795,7 @@ if(dscWarning == 1) {
 // ("park brake error - yellow" per the reference project), which was
 // completely unused until now - distinct from code 71 ("park brake error -
 // red", permanently disabled, see the seatbelt/parking-brake entry in
-// CLAUDE.md) and from the real handbrake-engaged light on 0x34F. User wanted
+// NOTES.md) and from the real handbrake-engaged light on 0x34F. User wanted
 // the yellow lamp specifically because they'd seen it flash yellow on
 // startup, and wanted to reuse it for "brake air pressure low".
 // `acc_lightstage` (customprotocol field 21, previously always 0/dead - see
@@ -898,7 +898,7 @@ if (lightsOverrideOn) {
     // NONE showed a distinct low-beam icon; the cluster shows a green
     // "parking lights" icon instead whenever byte0's bit2 is set, and shows
     // that PLUS the correct blue high-beam icon when high beam is genuinely on
-    // (0x07/0x00, unchanged, still confirmed working). See CLAUDE.md for the
+    // (0x07/0x00, unchanged, still confirmed working). See NOTES.md for the
     // full trail before trying more values - reverted to this original 0x05
     // baseline (no evidence it's more/less correct than the others tried, but
     // it matches what an earlier session claimed was "confirmed working" at
@@ -1000,7 +1000,7 @@ cv = 0x00;
 //
 // UPDATE (2026-09-23): raw/no-checksum version above confirmed NOT working live
 // (SimHub-side data independently confirmed correct via Ncalc Tester - see
-// CLAUDE.md). Cross-checked several of THIS cluster's own confirmed-working CAN
+// NOTES.md). Cross-checked several of THIS cluster's own confirmed-working CAN
 // IDs against the E90 DBC: 6 of 23 matched exactly (0x349, 0x34F, 0x202, 0x21A,
 // 0xD7, 0x1F6), showing real CAN-architecture continuity between E90 and F30 for
 // body/dash messages - so the earlier "wrong generation" theory is weaker than

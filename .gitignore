@@ -2,3 +2,5 @@
 tools/cc_scanner/captures/
 __pycache__/
 *.pyc
+# local tool hook that imports NOTES.md (not part of the project)
+CLAUDE.md

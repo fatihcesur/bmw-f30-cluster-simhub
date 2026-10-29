@@ -403,7 +403,7 @@ SHPWMPin shCONSPIN(CONS_PIN);
 // here to remotely trigger the cluster's MID/trip screen change. It works by transmitting
 // CAN ID 0x1EE (the BMW F-series steering wheel MENU button message, per the reference project's
 // BMWFSeriesCluster.cpp sendSteeringWheelButton()) — payload {76,0xFF} while held, {0,0xFF}
-// on release. NOT YET VERIFIED live on this hardware; test and update this comment/CLAUDE.md
+// on release. NOT YET VERIFIED live on this hardware; test and update this comment/NOTES.md
 // once confirmed whether it actually advances the MID page.
 // INCLUDE_BUTTONS is normally injected by SimHub's Arduino sketch generator based on which
 // peripherals are checked in its config UI; this sketch is compiled directly with arduino-cli
@@ -455,7 +455,7 @@ const int driveModesCount = 6;
 // switch closes (shorts to GND) when the belt IS buckled - if the real behavior is
 // reversed on this buckle, flip the ternary below. Continuous level, not a press event
 // (see buttonStatusChanged buttonId==5) - drives CAN 0x5c0 warning codes 71/77 in
-// SHCustomProtocol::Loop(). CAUTION (see CLAUDE.md): forcing these lamps on was
+// SHCustomProtocol::Loop(). CAUTION (see NOTES.md): forcing these lamps on was
 // previously observed to also light the parking-brake lamp as an unexplained side
 // effect - watch for that when testing.
 int seatbeltBuckled = 1;

@@ -1,7 +1,7 @@
 # 04.10.2026 oturumu - toplanan bilgiler
 
 Bu klasör, 4 Ekim 2026 gecesi ve gündüzü yapılan tezgâh çalışmalarının yedeğidir.
-Ayrıntılı teknik notlar: `docs/RESEARCH.md`, `CLAUDE.md`. Ham kamera kareleri (~350 MB)
+Ayrıntılı teknik notlar: `docs/RESEARCH.md`, `NOTES.md`. Ham kamera kareleri (~350 MB)
 `tools/cc_scanner/captures/` altında kalıyor (git'e dahil değil).
 
 ## 1. Yakıt göstergesi - ÇÖZÜLDÜ (tezgâhta doğrulandı, oyunda denenmedi)

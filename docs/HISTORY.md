@@ -1,8 +1,7 @@
 # BMW F30 cluster — SimHub project notes
 
-This file is read automatically by Claude Code at the start of every session in this
-folder. It exists so a future session (fresh or resumed) doesn't have to re-discover
-everything the hard way. Read this before touching the code.
+The full dated development log: every experiment, dead end and fix, so nothing has to be
+re-discovered the hard way. Read this before touching the code.
 
 ## Arduino Nano pin usage (check this before wiring anything new)
 
@@ -1076,7 +1075,7 @@ edited the live formula directly inside SimHub without it ever being copied back
 here - this repo file is only a source of truth if it's kept in sync by actually
 re-pasting after every edit (see workflow note below). When this was discovered,
 the *live* SimHub formula (not this repo's stale copy) turned out to have several
-fields **hardcoded to `'0'` that earlier CLAUDE.md entries had called "confirmed
+fields **hardcoded to `'0'` that earlier NOTES.md entries had called "confirmed
 working"**: field 5 (`OilPressureWarning`), fields 16-18 (`ABSActive`/`TCActive`/
 `TCLevel`), field 31 (fog light `AuxFront`), field 32 (`BrakesTemperatureAvg` -
 replaced with a hardcoded literal `'20'`, not real data), field 36
