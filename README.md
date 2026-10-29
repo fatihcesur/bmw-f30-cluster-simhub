@@ -4,7 +4,7 @@ A real BMW F30 instrument cluster on the desk, driven by an Arduino Nano + MCP25
 over CAN and fed live from your games through **SimHub**. Every needle, lamp and most of
 the MID display react to the game.
 
-![White-LED cluster running the bench test](docs/images/2026-10-08/white_leds_after.jpg)
+![BMW F30 instrument cluster on the bench, original amber backlight](docs/images/hero_amber.jpg)
 
 This is not a copy-paste of an existing cluster sketch. The CAN messages, CRC seeds,
 scalings and check-control codes were worked out on this exact cluster (KOMBI, CAFD
