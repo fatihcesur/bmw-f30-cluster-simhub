@@ -48,7 +48,7 @@ if __name__ == "__main__":
     steps = [(float(a.split(":")[0]), dict(kv.split("=") for kv in a.split(":")[1].split(","))) for a in sys.argv[1:]]
     sh = FakeSimHub()
     for secs, kw in steps:
-        kw = {k: (v if k == "x" else int(v)) for k, v in kw.items()}
+        kw = {k: (v if k in ("x", "gear") else int(v)) for k, v in kw.items()}
         print(time.strftime("%H:%M:%S"), secs, "s", kw, flush=True)
         t0 = time.time()
         while time.time() - t0 < secs:
