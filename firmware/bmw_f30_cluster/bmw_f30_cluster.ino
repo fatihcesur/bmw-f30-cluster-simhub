@@ -1,11 +1,12 @@
 // J revision sketch
 #define VERSION 'j'
 
+#if defined(__AVR__)
 #include <avr/pgmspace.h>
+#endif
 #include <EEPROM.h>
 #include <SPI.h>
 #include "Arduino.h"
-#include <avr/pgmspace.h>
 #include <Wire.h>
 #include "Adafruit_GFX.h"
 #include "FlowSerialRead.h"
@@ -428,7 +429,13 @@ SHPWMPin shCONSPIN(CONS_PIN);
 
 // Only the 5 used buttons get objects (2026-10-04: 7 unused SHButtons cost ~110 bytes of
 // RAM, and below ~500 free bytes SimHub fails to detect the board). Raise with ENABLED_BUTTONS_COUNT.
+#if defined(ARDUINO_ARCH_STM32)
+// Blue Pill: same five roles on PB5..PB9 (Button 1 slot unused, MID page, drive mode,
+// consumption unit, seatbelt switch). Wire each switch to GND, internal pull-ups are on.
+int BUTTON_PINS[] = { PB5, PB6, PB7, PB8, PB9 };
+#else
 int BUTTON_PINS[] = { BUTTON_PIN_1, BUTTON_PIN_2, BUTTON_PIN_3, BUTTON_PIN_4, BUTTON_PIN_5 };
+#endif
 SHButton button1, button2, button3, button4, button5;
 SHButton* BUTTONS[] = { &button1, &button2, &button3, &button4, &button5 };
 

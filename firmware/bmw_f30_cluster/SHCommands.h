@@ -43,6 +43,12 @@ void Command_UniqueId() {
 	FlowSerialFlush();
 }
 
+#ifndef SIGNATURE_0   // non-AVR boards (STM32): report an ATmega328P signature
+#define SIGNATURE_0 0x1E
+#define SIGNATURE_1 0x95
+#define SIGNATURE_2 0x0F
+#endif
+
 void Command_MCUType() {
 	FlowSerialPrint(SIGNATURE_0);
 	FlowSerialPrint(SIGNATURE_1);

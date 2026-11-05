@@ -29,8 +29,15 @@ extern int seatbeltBuckled;
 extern int driveModes[];
 extern const int driveModesCount;
 
-const int spiCS = 10;  
-const int intPin = 2; 
+#if defined(ARDUINO_ARCH_STM32)
+// STM32F103 "Blue Pill": MCP2515 on SPI2. PB12-PB15 and PA8 are 5 V tolerant, so the
+// 5 V MCP2515 module's SO line can't hurt the 3.3 V chip.
+const int spiCS = PB12;
+const int intPin = PA8;
+#else
+const int spiCS = 10;
+const int intPin = 2;
+#endif
 
 MCP_CAN CAN(spiCS);
 CRC8 crc8Calculator;
@@ -131,7 +138,12 @@ class SHCustomProtocol {
 
 public:
 
-void Setup() { 
+void Setup() {
+#if defined(ARDUINO_ARCH_STM32)
+	SPI.setMOSI(PB15);   // these pins select SPI2 in the STM32 core
+	SPI.setMISO(PB14);
+	SPI.setSCLK(PB13);
+#endif
 	    if (CAN.begin(MCP_ANY, CAN_500KBPS, MCP_8MHZ) == CAN_OK) {
         Serial.println(F("MCP2515 Initialized Successfully!"));
         CAN.setMode(MCP_NORMAL);
