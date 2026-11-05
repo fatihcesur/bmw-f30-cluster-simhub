@@ -13,7 +13,8 @@
 #define lo8(x) ((int)(x) & 0xff)
 #define hi8(x) ((int)(x) >> 8)
 
-MCP_CAN CAN(10);
+// Blue Pill: MCP2515 CS PB12, SCK PB13, SO PB14, SI PB15 (SPI2)
+MCP_CAN CAN(PB12);
 CRC8 crc8;
 bool canOk = false;
 uint8_t ctr = 0;
@@ -37,6 +38,7 @@ void cc(uint8_t code, bool on) {
 
 void setup() {
   Serial.begin(115200);
+  SPI.setMOSI(PB15); SPI.setMISO(PB14); SPI.setSCLK(PB13);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(2, INPUT);
   crc8.begin();

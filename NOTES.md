@@ -6,26 +6,30 @@ why) lives in `docs/HISTORY.md` — grep it for a CAN ID or feature name before
 re-investigating anything. Research/candidate lists for unsolved items live in
 `docs/RESEARCH.md`.
 
-## Arduino Nano pin usage (check before wiring anything new)
+## Blue Pill pin usage (check before wiring anything new)
+
+Since 2026-11-06 the firmware targets the STM32F103C8 Blue Pill only (user: it runs more
+smoothly than the Nano). Compiling for anything else stops with `#error`.
 
 | Pin | Used for | Notes |
 |-----|----------|-------|
-| D2  | MCP2515 INT | `intPin` in `SHCustomProtocol.h` |
-| D3  | Button 1 slot | Claimed by `SHButton::begin()`, nothing wired. Button 1 is really the cluster's own trip button, read over CAN `0x5E0` |
-| D4  | Button 2 – MID page / long-press trip reset | Sends `0x1EE` (steering wheel MENU) while held |
-| D5  | Button 3 – drive mode cycle | `drivemod` on `0x3A7`, cycles `{1,2,4,5,6,7}` |
-| D6  | Button 4 – consumption unit cycle | `setmpgl100orkml` 1=l/100km 2=mpg 3=km/l |
-| D7  | Button 5 – real seatbelt buckle switch | Level, not press. Drives `0x5c0` code 77 only |
-| D8, D9, A0–A7 | Free | Next GPIO input starts at D8 |
-| D10 | MCP2515 CS | `spiCS` |
-| D11–D13 | Hardware SPI | Never reuse |
+| PB12 | MCP2515 CS | `spiCS` in `SHCustomProtocol.h` |
+| PB13 / PB14 / PB15 | MCP2515 SCK / SO / SI | SPI2, selected with `SPI.setSCLK/MISO/MOSI` before `CAN.begin` |
+| PA8 | MCP2515 INT | `intPin` |
+| PB5 | Button 1 slot | Nothing wired. Button 1 is really the cluster's own trip button, read over CAN `0x5E0` |
+| PB6 | Button 2 – MID page / long-press trip reset | Sends `0x1EE` (steering wheel MENU) while held |
+| PB7 | Button 3 – drive mode cycle | `drivemod` on `0x3A7`, cycles `{1,2,4,5,6,7}` |
+| PB8 | Button 4 – consumption unit cycle | `setmpgl100orkml` 1=l/100km 2=mpg 3=km/l |
+| PB9 | Button 5 – real seatbelt buckle switch | Level, not press. Drives `0x5c0` code 77 only |
 
-Pin defaults live in `bmw_f30_cluster.ino` near `#define ENABLED_BUTTONS_COUNT`.
+All MCP2515 lines are on 5 V tolerant pins (module runs on 5V). PA11/PA12 = USB (SimHub
+serial, CDC), PA13/PA14 = SWD (ST-Link upload). Pin defaults live in `bmw_f30_cluster.ino`
+near `#define ENABLED_BUTTONS_COUNT`. FQBN
+`STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8,usb=CDCgen,upload_method=swdMethod`.
+RAM is no longer tight (26 % used); the Nano RAM notes below are history.
 
-MCP2515 module → Nano (original wiring, what the firmware expects): VCC→5V, GND→GND,
-CS→D10, SO→D12, SI→D11, SCK→D13, INT→D2. Moving SO/SI/SCK/VCC/GND to the ICSP header
-also works without code changes (same SPI pins), but CS and INT must stay on D10/D2.
-
+Nano era (until 2026-11-06): MCP2515 CS D10, INT D2, SPI D11–D13, buttons D3–D7.
+`tools/cc_scanner/` firmware is still the Nano version.
 "Cluster dead" check (2026-10-08): flash `tools/bench/alltest/alltest` (standalone, no SimHub,
 all lamps on, 100 km/h / 5000 rpm, prints `ok/err/TEC/REC` at 115200). The MCP2515 still
 answers "OK" over SPI with its VCC unpowered (back-fed through the SPI pins), but the

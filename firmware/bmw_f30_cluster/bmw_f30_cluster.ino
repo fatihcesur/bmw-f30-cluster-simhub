@@ -1,16 +1,12 @@
 // J revision sketch
 #define VERSION 'j'
 
-#if defined(__AVR__)
-#include <avr/pgmspace.h>
-#endif
 #include <EEPROM.h>
 #include <SPI.h>
 #include "Arduino.h"
 #include <Wire.h>
 #include "Adafruit_GFX.h"
 #include "FlowSerialRead.h"
-#include "setPwmFrequency.h"
 #include "SHDebouncer.h"
 #include "SHButton.h"
 #include "SHCustomProtocol.h"
@@ -414,28 +410,23 @@ SHPWMPin shCONSPIN(CONS_PIN);
 #define INCLUDE_BUTTONS
 #ifdef  INCLUDE_BUTTONS
 
-#define BUTTON_PIN_1 3          //{"Name":"BUTTON_PIN_1","Title":"1'st Additional button digital pin","DefaultValue":"3","Type":"pin;Button 1","Condition":"ENABLED_BUTTONS_COUNT>=1"}
-#define BUTTON_PIN_2 4          //{"Name":"BUTTON_PIN_2","Title":"2'nd Additional button digital pin (trip/MID screen button)","DefaultValue":"4","Type":"pin;Button 2","Condition":"ENABLED_BUTTONS_COUNT>=2"}
-#define BUTTON_PIN_3 5          //{"Name":"BUTTON_PIN_3","Title":"3'rd Additional button digital pin (drive mode cycle button)","DefaultValue":"5","Type":"pin;Button 3","Condition":"ENABLED_BUTTONS_COUNT>=3"}
-#define BUTTON_PIN_4 6          //{"Name":"BUTTON_PIN_4","Title":"4'th Additional button digital pin (consumption unit cycle button)","DefaultValue":"6","Type":"pin;Button 4","Condition":"ENABLED_BUTTONS_COUNT>=4"}
-#define BUTTON_PIN_5 7          //{"Name":"BUTTON_PIN_5","Title":"5'th Additional button digital pin (seatbelt buckle switch)","DefaultValue":"7","Type":"pin;Button 5","Condition":"ENABLED_BUTTONS_COUNT>=5"}
-#define BUTTON_PIN_6 3          //{"Name":"BUTTON_PIN_6","Title":"6'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 6","Condition":"ENABLED_BUTTONS_COUNT>=6"}
-#define BUTTON_PIN_7 3          //{"Name":"BUTTON_PIN_7","Title":"7'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 7","Condition":"ENABLED_BUTTONS_COUNT>=7"}
-#define BUTTON_PIN_8 3          //{"Name":"BUTTON_PIN_8","Title":"8'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 8","Condition":"ENABLED_BUTTONS_COUNT>=8"}
-#define BUTTON_PIN_9 3          //{"Name":"BUTTON_PIN_9","Title":"9'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 9","Condition":"ENABLED_BUTTONS_COUNT>=9"}
-#define BUTTON_PIN_10 3         //{"Name":"BUTTON_PIN_10","Title":"10'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 10","Condition":"ENABLED_BUTTONS_COUNT>=10"}
-#define BUTTON_PIN_11 3         //{"Name":"BUTTON_PIN_11","Title":"11'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 11","Condition":"ENABLED_BUTTONS_COUNT>=11"}
-#define BUTTON_PIN_12 3         //{"Name":"BUTTON_PIN_12","Title":"12'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 12","Condition":"ENABLED_BUTTONS_COUNT>=12"}
+#define BUTTON_PIN_1 PB5          //{"Name":"BUTTON_PIN_1","Title":"1'st Additional button digital pin","DefaultValue":"3","Type":"pin;Button 1","Condition":"ENABLED_BUTTONS_COUNT>=1"}
+#define BUTTON_PIN_2 PB6          //{"Name":"BUTTON_PIN_2","Title":"2'nd Additional button digital pin (trip/MID screen button)","DefaultValue":"4","Type":"pin;Button 2","Condition":"ENABLED_BUTTONS_COUNT>=2"}
+#define BUTTON_PIN_3 PB7          //{"Name":"BUTTON_PIN_3","Title":"3'rd Additional button digital pin (drive mode cycle button)","DefaultValue":"5","Type":"pin;Button 3","Condition":"ENABLED_BUTTONS_COUNT>=3"}
+#define BUTTON_PIN_4 PB8          //{"Name":"BUTTON_PIN_4","Title":"4'th Additional button digital pin (consumption unit cycle button)","DefaultValue":"6","Type":"pin;Button 4","Condition":"ENABLED_BUTTONS_COUNT>=4"}
+#define BUTTON_PIN_5 PB9          //{"Name":"BUTTON_PIN_5","Title":"5'th Additional button digital pin (seatbelt buckle switch)","DefaultValue":"7","Type":"pin;Button 5","Condition":"ENABLED_BUTTONS_COUNT>=5"}
+#define BUTTON_PIN_6 PB5          //{"Name":"BUTTON_PIN_6","Title":"6'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 6","Condition":"ENABLED_BUTTONS_COUNT>=6"}
+#define BUTTON_PIN_7 PB5          //{"Name":"BUTTON_PIN_7","Title":"7'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 7","Condition":"ENABLED_BUTTONS_COUNT>=7"}
+#define BUTTON_PIN_8 PB5          //{"Name":"BUTTON_PIN_8","Title":"8'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 8","Condition":"ENABLED_BUTTONS_COUNT>=8"}
+#define BUTTON_PIN_9 PB5          //{"Name":"BUTTON_PIN_9","Title":"9'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 9","Condition":"ENABLED_BUTTONS_COUNT>=9"}
+#define BUTTON_PIN_10 PB5          //{"Name":"BUTTON_PIN_10","Title":"10'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 10","Condition":"ENABLED_BUTTONS_COUNT>=10"}
+#define BUTTON_PIN_11 PB5          //{"Name":"BUTTON_PIN_11","Title":"11'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 11","Condition":"ENABLED_BUTTONS_COUNT>=11"}
+#define BUTTON_PIN_12 PB5          //{"Name":"BUTTON_PIN_12","Title":"12'th Additional button digital pin","DefaultValue":"3","Type":"pin;Button 12","Condition":"ENABLED_BUTTONS_COUNT>=12"}
 
 // Only the 5 used buttons get objects (2026-10-04: 7 unused SHButtons cost ~110 bytes of
 // RAM, and below ~500 free bytes SimHub fails to detect the board). Raise with ENABLED_BUTTONS_COUNT.
-#if defined(ARDUINO_ARCH_STM32)
-// Blue Pill: same five roles on PB5..PB9 (Button 1 slot unused, MID page, drive mode,
-// consumption unit, seatbelt switch). Wire each switch to GND, internal pull-ups are on.
-int BUTTON_PINS[] = { PB5, PB6, PB7, PB8, PB9 };
-#else
+// Blue Pill pins: switch to GND, internal pull-ups are on.
 int BUTTON_PINS[] = { BUTTON_PIN_1, BUTTON_PIN_2, BUTTON_PIN_3, BUTTON_PIN_4, BUTTON_PIN_5 };
-#endif
 SHButton button1, button2, button3, button4, button5;
 SHButton* BUTTONS[] = { &button1, &button2, &button3, &button4, &button5 };
 

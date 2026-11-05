@@ -2,7 +2,7 @@
 // no reflection, then XOR with a per-message constant ("final"). The constant for each CAN
 // ID was recovered from real captures; see docs/HISTORY.md.
 //
-// Bitwise implementation on purpose: no 256-byte lookup table, which matters on the Nano's
+// Bitwise implementation on purpose: no 256-byte lookup table, which mattered on the original Nano's
 // 2 KB of RAM. A frame is at most 8 bytes, so the extra cycles don't matter.
 
 #ifndef CRC8_H

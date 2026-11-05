@@ -1,6 +1,6 @@
 # BMW F30 instrument cluster for SimHub
 
-A real BMW F30 instrument cluster on the desk, driven by an Arduino Nano + MCP2515
+A real BMW F30 instrument cluster on the desk, driven by an STM32 Blue Pill + MCP2515
 over CAN and fed live from your games through **SimHub**. Every needle, lamp and most of
 the MID display react to the game.
 
@@ -32,51 +32,38 @@ Open items (help welcome): speed-limit sign (SLI), low-beam icon
 ## Hardware
 
 - Real BMW F30/F3x analog instrument cluster with a 12 V supply
-- Arduino Nano (or STM32 Blue Pill, see below) + MCP2515 CAN module (**8 MHz crystal**), 500 kbps CAN
+- STM32F103C8 "Blue Pill" + MCP2515 CAN module (**8 MHz crystal**), 500 kbps CAN
+- ST-Link (SWD) to upload
 - Cluster connector: pins 1, 2, 11 = 12 V · 7, 8 = GND · 6 = CAN-H · 12 = CAN-L
-- Arduino is USB powered; only GND is shared with the cluster's 12 V supply
+- The Blue Pill is USB powered; only GND is shared with the cluster's 12 V supply.
+  SimHub connects through the Blue Pill's own USB port.
 
-| Arduino pin | Function |
+| Blue Pill pin | Function |
 |---|---|
-| D2 | MCP2515 INT |
-| D4 | MID page button (hold = reset the trip value on the current page) |
-| D5 | Drive mode cycle |
-| D6 | Consumption unit cycle (l/100km / mpg / km/l) |
-| D7 | Seatbelt buckle switch (to GND when buckled) |
-| D10–D13 | MCP2515 CS / SPI |
+| PB12 | MCP2515 CS |
+| PB13 / PB14 / PB15 | MCP2515 SCK / SO / SI (SPI2) |
+| PA8 | MCP2515 INT |
+| PB6 | MID page button (hold = reset the trip value on the current page) |
+| PB7 | Drive mode cycle |
+| PB8 | Consumption unit cycle (l/100km / mpg / km/l) |
+| PB9 | Seatbelt buckle switch (to GND when buckled) |
+| 5V / GND | MCP2515 VCC / GND |
 
-MCP2515 → Nano: VCC → **5V** (not RST, it is right next to it), GND → GND, CS → D10,
-SO → D12, SI → D11, SCK → D13, INT → D2.
-
-The cluster's own trip button is read back over CAN (`0x5E0`) and appears in SimHub as
+All MCP2515 lines sit on 5 V tolerant pins, so the 5 V module is safe on the 3.3 V chip.
+Buttons switch to GND (internal pull-ups). PB5 is the unused Button 1 slot: the
+cluster's own trip button is read back over CAN (`0x5E0`) and appears in SimHub as
 Button 1.
 
-### STM32 "Blue Pill" instead of the Nano
-
-The same sketch also builds for an STM32F103C8 Blue Pill with the same MCP2515 module
-(tested on the bench). The pins are chosen automatically when you compile for the Blue
-Pill; all MCP2515 lines sit on 5 V tolerant pins.
-
-| MCP2515 | Blue Pill |
-|---|---|
-| VCC / GND | 5V / GND |
-| CS | PB12 |
-| SO | PB14 |
-| SI | PB15 |
-| SCK | PB13 |
-| INT | PA8 |
-
-Buttons (switch to GND): PB6 MID page, PB7 drive mode, PB8 consumption unit, PB9
-seatbelt (PB5 is the unused Button 1 slot). SimHub connects through the Blue Pill's own
-USB port. Board: *STMicroelectronics STM32 core*, `Generic STM32F1 series`, part number
-`BluePill F103C8`, USB support `CDC (generic 'Serial' supersede U(S)ART)`; upload with an
-ST-Link (SWD).
+The project was developed on an Arduino Nano first; the Blue Pill turned out to run
+more smoothly (far more RAM and speed), so the firmware now targets it only. The webcam
+research firmware in `tools/cc_scanner/` is still the Nano version.
 
 ## Setup
 
 1. Install the libraries in [`firmware/LIBRARIES.md`](firmware/LIBRARIES.md).
-2. Open `firmware/bmw_f30_cluster/bmw_f30_cluster.ino`, board **Arduino Nano** (or the
-   Blue Pill settings below), upload.
+2. Open `firmware/bmw_f30_cluster/bmw_f30_cluster.ino` with the **STMicroelectronics
+   STM32** core: board `Generic STM32F1 series`, part number `BluePill F103C8`, USB support
+   `CDC (generic 'Serial' supersede U(S)ART)`, upload method `STM32CubeProgrammer (SWD)`.
    Close SimHub first (it holds the COM port), and close it from its own window: a
    force-kill can lose an unsaved formula.
 3. In SimHub add a **Custom Serial Device**, 19200 baud, and paste
@@ -134,14 +121,14 @@ internal loopback) narrow it down further.
 | `docs/cc_atlas/` | Photo atlas of ~580 check-control codes on this cluster |
 | `docs/images/` | Highlights, LED swap before/after, PCB photo |
 | `docs/archive/` | Session backups (fuel tests, SLI scan logs, SimHub configs) |
-| `tools/bench/` | Standalone test and diagnostic sketches |
+| `tools/bench/` | Standalone test and diagnostic sketches (Blue Pill) |
 | `tools/cc_scanner/` | Webcam-driven scanners (check-control codes, fuel, gears, UDS) with their logs |
 | `tools/gong/` | PC-side warning gong through SimHub's web API |
 | `NOTES.md` | Condensed rules and current state |
 
 ## Türkçe özet
 
-Gerçek bir BMW F30 gösterge panelini Arduino Nano (veya STM32 Blue Pill) + MCP2515 ile CAN üzerinden
+Gerçek bir BMW F30 gösterge panelini STM32 Blue Pill + MCP2515 ile CAN üzerinden
 sürüp SimHub aracılığıyla oyunlara bağlayan proje. İbreler, ikaz lambaları, vites,
 sürüş modları, saat, ortalama tüketim / menzil, yakıt doldurma ve oyun uyarıları
 çalışıyor. Formül oyunu kendisi tanır: ETS2/ATS, Assetto Corsa/ACC, BeamNG ve SimHub'ın

@@ -1,8 +1,10 @@
 #include <SPI.h>
 #include <mcp_can.h>
-MCP_CAN CAN(10);
+// Blue Pill: MCP2515 CS PB12, SCK PB13, SO PB14, SI PB15 (SPI2)
+MCP_CAN CAN(PB12);
 void setup() {
-  Serial.begin(115200); delay(300);
+  Serial.begin(115200);
+  SPI.setMOSI(PB15); SPI.setMISO(PB14); SPI.setSCLK(PB13); delay(300);
   Serial.println(CAN.begin(MCP_ANY, CAN_500KBPS, MCP_8MHZ) == CAN_OK ? F("begin OK") : F("begin FAIL"));
   CAN.setMode(MCP_LOOPBACK);
   uint8_t b[8] = {1,2,3,4,5,6,7,8}; int sent = 0, got = 0;

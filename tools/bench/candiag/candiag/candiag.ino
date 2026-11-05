@@ -1,6 +1,7 @@
 #include <SPI.h>
 #include <mcp_can.h>
-MCP_CAN CAN(10);
+// Blue Pill: MCP2515 CS PB12, SCK PB13, SO PB14, SI PB15 (SPI2)
+MCP_CAN CAN(PB12);
 void tryCfg(uint8_t spd, uint8_t clk, const __FlashStringHelper *name) {
   if (CAN.begin(MCP_ANY, spd, clk) != CAN_OK) { Serial.print(name); Serial.println(F(" begin FAIL")); return; }
   CAN.setMode(MCP_LISTENONLY);
@@ -14,7 +15,7 @@ void tryCfg(uint8_t spd, uint8_t clk, const __FlashStringHelper *name) {
   Serial.print(F(" ids:")); for (uint8_t i = 0; i < k; i++) { Serial.print(' '); Serial.print(ids[i] & 0x7FF, HEX); }
   Serial.println();
 }
-void setup() { Serial.begin(115200); delay(500); }
+void setup() { Serial.begin(115200); SPI.setMOSI(PB15); SPI.setMISO(PB14); SPI.setSCLK(PB13); delay(500); }
 void loop() {
   tryCfg(CAN_500KBPS, MCP_8MHZ, F("500k@8MHz"));
   tryCfg(CAN_500KBPS, MCP_16MHZ, F("500k@16MHz"));

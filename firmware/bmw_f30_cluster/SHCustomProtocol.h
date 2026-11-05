@@ -29,15 +29,14 @@ extern int seatbeltBuckled;
 extern int driveModes[];
 extern const int driveModesCount;
 
-#if defined(ARDUINO_ARCH_STM32)
+#if !defined(ARDUINO_ARCH_STM32)
+#error "This firmware targets the STM32F103 Blue Pill (STMicroelectronics STM32 core), see README"
+#endif
+
 // STM32F103 "Blue Pill": MCP2515 on SPI2. PB12-PB15 and PA8 are 5 V tolerant, so the
 // 5 V MCP2515 module's SO line can't hurt the 3.3 V chip.
 const int spiCS = PB12;
 const int intPin = PA8;
-#else
-const int spiCS = 10;
-const int intPin = 2;
-#endif
 
 MCP_CAN CAN(spiCS);
 CRC8 crc8Calculator;
@@ -139,11 +138,9 @@ class SHCustomProtocol {
 public:
 
 void Setup() {
-#if defined(ARDUINO_ARCH_STM32)
 	SPI.setMOSI(PB15);   // these pins select SPI2 in the STM32 core
 	SPI.setMISO(PB14);
 	SPI.setSCLK(PB13);
-#endif
 	    if (CAN.begin(MCP_ANY, CAN_500KBPS, MCP_8MHZ) == CAN_OK) {
         Serial.println(F("MCP2515 Initialized Successfully!"));
         CAN.setMode(MCP_NORMAL);
@@ -475,7 +472,7 @@ handproc = 0;
 //(needed for its long-press-to-reset-trip-data behavior, not just page cycling)
 //`braketemp` (customprotocol field 36, was a dead/unused field) repurposed
 //(2026-09-19) to also carry the wheel's MODE button (B02) raw held state, ORed in
-//here so both the dash D4 button and the wheel button drive the same behavior.
+//here so both the dash PB6 button and the wheel button drive the same behavior.
 uint8_t menuButtonFrame[2] = { (menuButtonHeld == 1 || braketemp == 1) ? (uint8_t)76 : (uint8_t)0, 0xFF };
 CAN.sendMsgBuf(0x1EE, 0, 2, menuButtonFrame);
 
